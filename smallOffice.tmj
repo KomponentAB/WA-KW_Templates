@@ -1875,7 +1875,7 @@
                         {
                          "height":0,
                          "id":24,
-                         "name":"title",
+                         "name":"titleVariable",
                          "point":true,
                          "properties":[
                                 {
@@ -1913,7 +1913,7 @@
                         {
                          "height":0,
                          "id":25,
-                         "name":"color",
+                         "name":"colorVariable",
                          "point":true,
                          "properties":[
                                 {
