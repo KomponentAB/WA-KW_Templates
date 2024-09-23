@@ -48,7 +48,6 @@ async function updateTitle() {
 };
 WA.onInit().then(() => { updateTitle(); });
 
-
 // Listen for changes to the textVariable
 WA.state.onVariableChange('textVariable').subscribe(() => {
     console.log(`Text variable changed`);

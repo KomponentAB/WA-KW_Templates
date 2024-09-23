@@ -1815,7 +1815,7 @@
                         {
                          "name":"url",
                          "type":"string",
-                         "value":"https:\/\/iw6tkif7th7yp5ax2ufzkl3kce0bcuys.lambda-url.us-east-1.on.aws\/?text=empty&imageType=caption&width=88&height=24&color=yellow"
+                         "value":"https:\/\/iw6tkif7th7yp5ax2ufzkl3kce0bcuys.lambda-url.us-east-1.on.aws\/?text=Office&imageType=caption&width=88&height=24&color=yellow"
                         }],
                  "rotation":0,
                  "type":"website",
@@ -1865,7 +1865,7 @@
                                 {
                                  "name":"description",
                                  "type":"string",
-                                 "value":"Title of the office displayed at the Screen on the entrance"
+                                 "value":"Title of the office displayed at the Screen on the entrance. (Tipp: 14 Characters are well readable)"
                                 }, 
                                 {
                                  "name":"label",
@@ -1886,8 +1886,8 @@
                          "type":"variable",
                          "visible":true,
                          "width":0,
-                         "x":1012.50192931008,
-                         "y":1056.6445439111
+                         "x":1011.09081537674,
+                         "y":1057.20898948443
                         }, 
                         {
                          "height":0,
@@ -1924,8 +1924,8 @@
                          "type":"variable",
                          "visible":true,
                          "width":0,
-                         "x":1041.51875289397,
-                         "y":1057.26192313629
+                         "x":1101.63220645421,
+                         "y":1057.12081174295
                         }],
                  "opacity":1,
                  "properties":[
