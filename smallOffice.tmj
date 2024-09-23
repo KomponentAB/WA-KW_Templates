@@ -1810,12 +1810,12 @@
                 {
                  "height":24,
                  "id":20,
-                 "name":"Title",
+                 "name":"titleScreen",
                  "properties":[
                         {
                          "name":"url",
                          "type":"string",
-                         "value":"https:\/\/iw6tkif7th7yp5ax2ufzkl3kce0bcuys.lambda-url.us-east-1.on.aws\/?text={{ Title }}&imageType=caption&width=88&height=24&color={{ Color }}"
+                         "value":"https:\/\/iw6tkif7th7yp5ax2ufzkl3kce0bcuys.lambda-url.us-east-1.on.aws\/?text=empty&imageType=caption&width=88&height=24&color=yellow"
                         }],
                  "rotation":0,
                  "type":"website",
@@ -1846,42 +1846,21 @@
          "id":101,
          "layers":[
                 {
-                 "draworder":"topdown",
-                 "id":102,
-                 "name":"title",
-                 "objects":[],
-                 "opacity":1,
-                 "properties":[
-                        {
-                         "name":"label",
-                         "type":"string",
-                         "value":"title"
-                        }, 
-                        {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":"editor,admin"
-                        }],
-                 "type":"objectgroup",
-                 "visible":true,
-                 "x":0,
-                 "y":0
-                }, 
-                {
+                 "class":"variable",
                  "draworder":"topdown",
                  "id":103,
-                 "name":"color",
+                 "name":"title",
                  "objects":[
                         {
                          "height":0,
-                         "id":24,
-                         "name":"titleVariable",
+                         "id":27,
+                         "name":"textVariable",
                          "point":true,
                          "properties":[
                                 {
                                  "name":"default",
                                  "type":"string",
-                                 "value":"smallOffice Template"
+                                 "value":"Office"
                                 }, 
                                 {
                                  "name":"description",
@@ -1901,30 +1880,30 @@
                                 {
                                  "name":"writableBy",
                                  "type":"string",
-                                 "value":"editor,admin"
+                                 "value":"admin"
                                 }],
                          "rotation":0,
                          "type":"variable",
                          "visible":true,
                          "width":0,
-                         "x":1009.75,
-                         "y":1057.75
+                         "x":1012.50192931008,
+                         "y":1056.6445439111
                         }, 
                         {
                          "height":0,
-                         "id":25,
+                         "id":28,
                          "name":"colorVariable",
                          "point":true,
                          "properties":[
                                 {
                                  "name":"default",
                                  "type":"string",
-                                 "value":"lightyellow"
+                                 "value":"yellow"
                                 }, 
                                 {
                                  "name":"description",
                                  "type":"string",
-                                 "value":"Defines the text color. Options: a) Options:\n'lightyellow', 'black', 'grey', 'red', etc\n b) rgb(99, 172, 255)"
+                                 "value":"Defines the text color.\nOptions: \\n\na)'lightyellow', 'black', 'grey', 'red', etc \/n\nb) rgb(99, 172, 255)"
                                 }, 
                                 {
                                  "name":"label",
@@ -1939,21 +1918,21 @@
                                 {
                                  "name":"writableBy",
                                  "type":"string",
-                                 "value":"editor,admin"
+                                 "value":"admin"
                                 }],
                          "rotation":0,
                          "type":"variable",
                          "visible":true,
                          "width":0,
-                         "x":1101.75,
-                         "y":1058
+                         "x":1041.51875289397,
+                         "y":1057.26192313629
                         }],
                  "opacity":1,
                  "properties":[
                         {
                          "name":"label",
                          "type":"string",
-                         "value":"color"
+                         "value":"Edit Building Title"
                         }, 
                         {
                          "name":"writableBy",
@@ -2409,7 +2388,7 @@
          "y":0
         }],
  "nextlayerid":104,
- "nextobjectid":26,
+ "nextobjectid":29,
  "orientation":"orthogonal",
  "properties":[
         {
