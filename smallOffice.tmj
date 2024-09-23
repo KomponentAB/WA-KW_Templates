@@ -1919,7 +1919,7 @@
                                 {
                                  "name":"default",
                                  "type":"string",
-                                 "value":"yellow"
+                                 "value":"lightyellow"
                                 }, 
                                 {
                                  "name":"description",
