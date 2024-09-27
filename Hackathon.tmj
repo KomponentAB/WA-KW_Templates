@@ -4198,6 +4198,28 @@
                  "width":95.2542949481204,
                  "x":198.772162051117,
                  "y":1951.19201436237
+                }, 
+                {
+                 "height":415.732436472347,
+                 "id":44,
+                 "name":"Auditorium",
+                 "properties":[
+                        {
+                         "name":"ai-zone",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"description",
+                         "type":"string",
+                         "value":"Cental point of the map is the Auditorium."
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":660.500747384155,
+                 "x":541.853512705531,
+                 "y":1360.23916292975
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -5239,7 +5261,7 @@
          "y":0
         }],
  "nextlayerid":125,
- "nextobjectid":44,
+ "nextobjectid":45,
  "orientation":"orthogonal",
  "properties":[
         {
