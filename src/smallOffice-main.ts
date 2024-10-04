@@ -59,7 +59,7 @@ WA.state.onVariableChange('colorVariable').subscribe(() => {
     console.log(`Color variable changed`);
     updateTitle();
 });
-
+WA.onInit().then(() => {
 WA.room.area.onEnter('hideRoofZone').subscribe(() => {
     WA.room.hideLayer('above-roof/above-roof1')
     WA.room.hideLayer('above-roof/above-roof2')
@@ -69,6 +69,6 @@ WA.room.area.onLeave('hideRoofZone').subscribe(() => {
     WA.room.showLayer('above-roof/above-roof1')
     WA.room.showLayer('above-roof/above-roof2')
     WA.room.showLayer('above-roof/above-roof3');
-})
+})})
 
 export {};
