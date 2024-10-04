@@ -60,4 +60,15 @@ WA.state.onVariableChange('colorVariable').subscribe(() => {
     updateTitle();
 });
 
+WA.room.area.onEnter('hideRoofZone').subscribe(() => {
+    WA.room.hideLayer('above-roof/above-roof1')
+    WA.room.hideLayer('above-roof/above-roof2')
+    WA.room.hideLayer('above-roof/above-roof3');
+})
+WA.room.area.onLeave('hideRoofZone').subscribe(() => {
+    WA.room.showLayer('above-roof/above-roof1')
+    WA.room.showLayer('above-roof/above-roof2')
+    WA.room.showLayer('above-roof/above-roof3');
+})
+
 export {};
