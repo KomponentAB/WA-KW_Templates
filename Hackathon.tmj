@@ -4360,6 +4360,11 @@
                                  "value":true
                                 }, 
                                 {
+                                 "name":"readableBy",
+                                 "type":"string",
+                                 "value":"editor"
+                                }, 
+                                {
                                  "name":"type",
                                  "type":"string",
                                  "value":"select"
@@ -4367,7 +4372,7 @@
                                 {
                                  "name":"writableBy",
                                  "type":"string",
-                                 "value":"admin"
+                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable!",
@@ -4401,6 +4406,16 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
+                                }, 
+                                {
+                                 "name":"readableBy",
+                                 "type":"string",
+                                 "value":"editor"
+                                }, 
+                                {
+                                 "name":"writableBy",
+                                 "type":"string",
+                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -4492,12 +4507,12 @@
                                 {
                                  "name":"readableBy",
                                  "type":"string",
-                                 "value":"admin"
+                                 "value":"editor"
                                 }, 
                                 {
                                  "name":"writableBy",
                                  "type":"string",
-                                 "value":"admin"
+                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -4749,12 +4764,12 @@
                                 {
                                  "name":"readableBy",
                                  "type":"string",
-                                 "value":"admin"
+                                 "value":"editor"
                                 }, 
                                 {
                                  "name":"writableBy",
                                  "type":"string",
-                                 "value":"admin"
+                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -4901,17 +4916,6 @@
                          "y":1164.28337115645
                         }],
                  "opacity":1,
-                 "properties":[
-                        {
-                         "name":"readableBy",
-                         "type":"string",
-                         "value":"admin"
-                        }, 
-                        {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":"admin"
-                        }],
                  "type":"objectgroup",
                  "visible":true,
                  "x":0,
@@ -4989,12 +4993,12 @@
                                 {
                                  "name":"readableBy",
                                  "type":"string",
-                                 "value":"admin"
+                                 "value":"editor"
                                 }, 
                                 {
                                  "name":"writableBy",
                                  "type":"string",
-                                 "value":"admin"
+                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5228,12 +5232,12 @@
                                 {
                                  "name":"readableBy",
                                  "type":"string",
-                                 "value":"hackathon_host,admin"
+                                 "value":"editor"
                                 }, 
                                 {
                                  "name":"writableBy",
                                  "type":"string",
-                                 "value":"hackathon_host,admin"
+                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5467,12 +5471,12 @@
                                 {
                                  "name":"readableBy",
                                  "type":"string",
-                                 "value":"hackathon_host, admin"
+                                 "value":"editor"
                                 }, 
                                 {
                                  "name":"writableBy",
                                  "type":"string",
-                                 "value":"hackathon_host, admin"
+                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5706,12 +5710,12 @@
                                 {
                                  "name":"readableBy",
                                  "type":"string",
-                                 "value":"hackathon"
+                                 "value":"editor"
                                 }, 
                                 {
                                  "name":"writableBy",
                                  "type":"string",
-                                 "value":"hackathon"
+                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
