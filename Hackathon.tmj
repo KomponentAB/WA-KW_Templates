@@ -208,7 +208,7 @@
                  "value":"src\/Hackathon\/assets\/birds-singing.wav"
                 }],
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":55,
          "x":0,
          "y":0
@@ -315,7 +315,7 @@
                  "value":"src\/Hackathon\/assets\/bensound-thelounge.mp3"
                 }],
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":55,
          "x":0,
          "y":0
@@ -442,7 +442,7 @@
                  "value":""
                 }],
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":55,
          "x":0,
          "y":0
@@ -569,7 +569,7 @@
                  "value":""
                 }],
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":55,
          "x":0,
          "y":0
@@ -4529,11 +4529,6 @@
                  "name":"bot",
                  "properties":[
                         {
-                         "name":"allowApi",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
                          "name":"closable",
                          "type":"bool",
                          "value":true
@@ -4542,6 +4537,11 @@
                          "name":"openWebsite",
                          "type":"string",
                          "value":"https:\/\/chat.cocreation.world\/c3-o-mat"
+                        }, 
+                        {
+                         "name":"openWebsiteAllowApi",
+                         "type":"bool",
+                         "value":true
                         }],
                  "rotation":0,
                  "type":"area",
