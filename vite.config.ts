@@ -22,25 +22,26 @@ if (process.env.TILESET_OPTIMIZATION && process.env.TILESET_OPTIMIZATION === "tr
 }
 
 export default defineConfig({
-    base: "./",
+    base: "/stepFX",
     build: {
-        sourcemap: true,
-        rollupOptions: {
-            input: {
-                index: "./index.html",
-                ...getMapsScripts(maps),
-            },
+      sourcemap: true,
+      rollupOptions: {
+        input: {
+          index: "./index.html",
+          ...getMapsScripts(maps),
         },
+      },
     },
     plugins: [...getMapsOptimizers(maps, optimizerOptions)],
     server: {
-        host: "localhost",
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
-            "Cache-Control": "no-cache, no-store, must-revalidate",
-        },
-        open: "/",
+      host: "localhost",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Allow-Headers":
+          "X-Requested-With, content-type, Authorization",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+      },
+      open: "/",
     },
-});
+  });

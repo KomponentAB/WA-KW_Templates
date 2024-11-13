@@ -46,6 +46,39 @@ WA.room.area.onLeave('needHelp').subscribe(() => {
 
 
 })
+
+async function updateTitle(variableName: string) {
+    var text: string = WA.state[variableName] as string;
+    console.log(`Text for ${variableName} is configured as ` + text);
+  var color = variableName.split('-')[0];
+    var newTitle = `https://iw6tkif7th7yp5ax2ufzkl3kce0bcuys.lambda-url.us-east-1.on.aws/?text=${encodeURIComponent(text)}&imageType=caption&width=78&height=50&color=${(color)}`;
+    console.log('New img-url of title is ' + newTitle);
+    const website = await WA.room.website.get(variableName.replace('text', 'display'));
+    website.url = newTitle;
+    website.visible = true;
+    console.log(`Title for ${variableName} has been changed to ${website.url}`);
+};
+
+WA.onInit().then(() => {
+    updateTitle('purple-text');
+    updateTitle('blue-text');
+    updateTitle('red-text');
+    updateTitle('green-text');
+    updateTitle('yellow-text');
+    updateTitle('orange-text');
+    updateTitle('black-text');
+});
+
+// Listen for changes to each text variable
+['purple-text', 'blue-text', 'red-text', 'green-text', 'yellow-text', 'orange-text', 'black-text'].forEach(variableName => {
+    WA.state.onVariableChange(variableName).subscribe(() => {
+        console.log(`${variableName} variable changed`);
+        updateTitle(variableName);
+    });
+});
+
+
+
 export {};
 
 
