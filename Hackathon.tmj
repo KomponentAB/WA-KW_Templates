@@ -4745,6 +4745,16 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
+                                }, 
+                                {
+                                 "name":"readableBy",
+                                 "type":"string",
+                                 "value":"admin"
+                                }, 
+                                {
+                                 "name":"writableBy",
+                                 "type":"string",
+                                 "value":"admin"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5218,12 +5228,12 @@
                                 {
                                  "name":"readableBy",
                                  "type":"string",
-                                 "value":"editor"
+                                 "value":"hackathon_host,admin"
                                 }, 
                                 {
                                  "name":"writableBy",
                                  "type":"string",
-                                 "value":"editor"
+                                 "value":"hackathon_host,admin"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5457,12 +5467,12 @@
                                 {
                                  "name":"readableBy",
                                  "type":"string",
-                                 "value":"editor"
+                                 "value":"hackathon_host, admin"
                                 }, 
                                 {
                                  "name":"writableBy",
                                  "type":"string",
-                                 "value":"editor"
+                                 "value":"hackathon_host, admin"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5696,12 +5706,12 @@
                                 {
                                  "name":"readableBy",
                                  "type":"string",
-                                 "value":"editor"
+                                 "value":"hackathon"
                                 }, 
                                 {
                                  "name":"writableBy",
                                  "type":"string",
-                                 "value":"editor"
+                                 "value":"hackathon"
                                 }],
                          "rotation":0,
                          "type":"variable",
