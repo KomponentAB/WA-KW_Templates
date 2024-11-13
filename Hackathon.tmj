@@ -4503,16 +4503,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"readableBy",
-                                 "type":"string",
-                                 "value":"admin"
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"admin"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -4760,16 +4750,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"readableBy",
-                                 "type":"string",
-                                 "value":"editor"
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -4951,11 +4931,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -4989,16 +4964,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"readableBy",
-                                 "type":"string",
-                                 "value":"editor"
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5086,11 +5051,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5124,11 +5084,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5190,11 +5145,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5228,16 +5178,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"readableBy",
-                                 "type":"string",
-                                 "value":"editor"
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5325,11 +5265,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5363,11 +5298,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5429,11 +5359,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5467,16 +5392,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"readableBy",
-                                 "type":"string",
-                                 "value":"editor"
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5564,11 +5479,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5602,11 +5512,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5668,11 +5573,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5706,16 +5606,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"readableBy",
-                                 "type":"string",
-                                 "value":"editor"
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5803,11 +5693,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5841,11 +5726,6 @@
                                  "name":"persist",
                                  "type":"bool",
                                  "value":true
-                                }, 
-                                {
-                                 "name":"writableBy",
-                                 "type":"string",
-                                 "value":"editor"
                                 }],
                          "rotation":0,
                          "type":"variable",
@@ -5879,6 +5759,12 @@
                 }],
          "name":"configuration",
          "opacity":1,
+         "properties":[
+                {
+                 "name":"tag",
+                 "type":"string",
+                 "value":"editor"
+                }],
          "type":"group",
          "visible":true,
          "x":0,
