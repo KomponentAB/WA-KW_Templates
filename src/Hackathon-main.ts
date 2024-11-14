@@ -381,34 +381,33 @@ function addEndGroupingButton() {
             }
             }
         });
-        WA.onInit().then(() => {
-    WA.state.onVariableChange('showGroupingButton').subscribe(() => {
-        const showGroupingButton = WA.state.showGroupingButton;
-        if (showGroupingButton === "show") {
-            const privilegedTags = ["admin", "editor", "moderator", "hackmod"];
-            if (privilegedTags.some(tag => WA.player.tags.includes(tag))) {
-                const groupingState = Number(WA.state.grouping);
-                const showGroupingButton = WA.state.showGroupingButton;
-                if (showGroupingButton === "show") {
-                    if (groupingState === 1) {
-                        addStartGroupingButton();
-                    } else if (groupingState === 0) {
-                        addEndGroupingButton();
+    WA.onInit().then(() => {
+        if (WA.player.tags.includes("editor")) {
+            WA.state.onVariableChange('showGroupingButton').subscribe({
+                next: () => {
+                    const showGroupingButton = WA.state.showGroupingButton;
+                    const groupingState = Number(WA.state.grouping);
+                    if (showGroupingButton === "show") {
+                        if (groupingState === 1) {
+                            addStartGroupingButton();
+                        } else if (groupingState === 0) {
+                            addEndGroupingButton();
+                        }
+                    } else if (showGroupingButton === "hide") {
+                        WA.ui.actionBar.removeButton('startGrouping-btn');
+                        WA.ui.actionBar.removeButton('endGrouping-btn');
                     }
                 }
-            }
-       
+            });
+
             const groupingState = Number(WA.state.grouping);
             if (groupingState === 1) {
                 addStartGroupingButton();
             } else if (groupingState === 0) {
                 addEndGroupingButton();
             }
-        } else if (showGroupingButton === "hide") {
-            WA.ui.actionBar.removeButton('startGrouping-btn');
-            WA.ui.actionBar.removeButton('endGrouping-btn');
         }
-    }); });
+    });
 
     WA.onInit().then(() => {
         const handleLockAllChange = () => {
