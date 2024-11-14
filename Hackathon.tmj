@@ -4497,7 +4497,7 @@
                  "y":837
                 }, 
                 {
-                 "height":64.3777623941635,
+                 "height":61.0306862876332,
                  "id":135,
                  "name":"black-display",
                  "properties":[
@@ -4519,9 +4519,9 @@
                  "rotation":0,
                  "type":"website",
                  "visible":true,
-                 "width":219.647585068427,
-                 "x":769.882262101283,
-                 "y":1327.57468448799
+                 "width":101.165545451329,
+                 "x":829.543905547402,
+                 "y":1328.88176438563
                 }, 
                 {
                  "height":122.5,
@@ -4529,14 +4529,9 @@
                  "name":"bot",
                  "properties":[
                         {
-                         "name":"closable",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"https:\/\/chat.cocreation.world\/c3-o-mat"
+                         "value":"{{{ bot-url }}}"
                         }, 
                         {
                          "name":"openWebsiteAllowApi",
@@ -4712,6 +4707,24 @@
                  "width":31.1541993769472,
                  "x":1414.3294423676,
                  "y":1417.04857227414
+                }, 
+                {
+                 "height":0,
+                 "id":157,
+                 "name":"lastPWEdit",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"persist",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"variable",
+                 "visible":true,
+                 "width":0,
+                 "x":238.551650692226,
+                 "y":2395.101171459
                 }],
          "opacity":0.78,
          "type":"objectgroup",
@@ -6182,8 +6195,137 @@
                          "type":"variable",
                          "visible":true,
                          "width":0,
-                         "x":700.666666666667,
-                         "y":2478.33333333333
+                         "x":1001.8430979803,
+                         "y":1336.56067434485
+                        }, 
+                        {
+                         "height":0,
+                         "id":156,
+                         "name":"showGroupingButton",
+                         "point":true,
+                         "properties":[
+                                {
+                                 "name":"allowed_values",
+                                 "type":"string",
+                                 "value":"{ \n\"\u274c hide\": \"hide\",\n\"\u2705 show\": \"show\"\n\n}"
+                                }, 
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":"1"
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"Decide if you want to display the randomise groups button. Once users are randomly assigned to groups, they cannot be changed. Do not use this option with fixed groups."
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"Easy Randomize Group Button"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"type",
+                                 "type":"string",
+                                 "value":"radio"
+                                }],
+                         "rotation":0,
+                         "type":"variable",
+                         "visible":true,
+                         "width":0,
+                         "x":388.711395101171,
+                         "y":2413.20553780618
+                        }, 
+                        {
+                         "height":0,
+                         "id":155,
+                         "name":"codingStyle",
+                         "point":true,
+                         "properties":[
+                                {
+                                 "name":"allowed_values",
+                                 "type":"string",
+                                 "value":"{ \n\"\ud83c\udfb2 Randomize\": \"random\",\n\"\ud83d\udd12Custom\": \"custom\"\n\n}"
+                                }, 
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":"1"
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"Decide if you want to create a new random password each time you move users to groups, or keep your custom codes. Custom codes don't change with new Breakout Group assignments. Users may remember the code for a room they accessed earlier."
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"Codes"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"type",
+                                 "type":"string",
+                                 "value":"radio"
+                                }],
+                         "rotation":0,
+                         "type":"variable",
+                         "visible":true,
+                         "width":0,
+                         "x":759.318423855165,
+                         "y":2419.595314164
+                        }, 
+                        {
+                         "height":0,
+                         "id":152,
+                         "name":"grouping",
+                         "point":true,
+                         "properties":[
+                                {
+                                 "name":"allowed_values",
+                                 "type":"string",
+                                 "value":"{ \n\"\ud83d\udc65 set Groups\": \"1\",\n\"\ud83d\udc64no Breakout Group Lock\": \"0\"\n\n}"
+                                }, 
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":""
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"Participants will be randomly assigned to groups of \ud83d\udfea \ud83d\udfe6 \ud83d\udfe5 \ud83d\udfe9 \ud83d\udfe7."
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"Breakout Group "
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"type",
+                                 "type":"string",
+                                 "value":"radio"
+                                }],
+                         "rotation":0,
+                         "type":"variable",
+                         "visible":true,
+                         "width":0,
+                         "x":484,
+                         "y":2420.65915539977
                         }, 
                         {
                          "height":0,
@@ -6225,8 +6367,8 @@
                          "type":"variable",
                          "visible":true,
                          "width":0,
-                         "x":561.596191903803,
-                         "y":2496.31316013851
+                         "x":593.596191903803,
+                         "y":2420.31316013851
                         }, 
                         {
                          "height":0,
@@ -6268,8 +6410,8 @@
                          "type":"variable",
                          "visible":true,
                          "width":0,
-                         "x":625.141286768965,
-                         "y":2474.30221651984
+                         "x":673.141286768965,
+                         "y":2418.30221651984
                         }, 
                         {
                          "height":0,
@@ -6301,8 +6443,46 @@
                          "type":"variable",
                          "visible":true,
                          "width":0,
-                         "x":782.159624413146,
-                         "y":2008.45070422535
+                         "x":747.492957746479,
+                         "y":2020.45070422535
+                        }, 
+                        {
+                         "height":0,
+                         "id":153,
+                         "name":"bot-url",
+                         "point":true,
+                         "properties":[
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":"https:\/\/chat.cocreation.world\/c3-o-mat"
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"The bot URL at the info booth."
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"Bot-URL"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"writableBy",
+                                 "type":"string",
+                                 "value":"editor"
+                                }],
+                         "rotation":0,
+                         "type":"variable",
+                         "visible":true,
+                         "width":0,
+                         "x":1148.26400961063,
+                         "y":2026.40350505265
                         }],
                  "opacity":1,
                  "properties":[
@@ -6310,6 +6490,11 @@
                          "name":"label",
                          "type":"string",
                          "value":"\ud83c\udf9b\ufe0f General Settings"
+                        }, 
+                        {
+                         "name":"tag",
+                         "type":"string",
+                         "value":"editor"
                         }],
                  "type":"objectgroup",
                  "visible":true,
@@ -6318,12 +6503,6 @@
                 }],
          "name":"configuration",
          "opacity":1,
-         "properties":[
-                {
-                 "name":"tag",
-                 "type":"string",
-                 "value":"editor"
-                }],
          "type":"group",
          "visible":true,
          "x":0,
@@ -7066,7 +7245,7 @@
          "y":0
         }],
  "nextlayerid":140,
- "nextobjectid":152,
+ "nextobjectid":158,
  "orientation":"orthogonal",
  "properties":[
         {
