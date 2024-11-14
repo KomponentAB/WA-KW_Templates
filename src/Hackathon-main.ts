@@ -223,7 +223,7 @@ function addGroupButton(groupName: keyof typeof groupIcons) {
                 
                     WA.ui.banner.openBanner({
                         id: "room-code",
-                        text: `🔐 🚪 The Code to the ${groupName} is: ${roomCode}.`,
+                        text: `🔐 🚪 The Code to the ${groupName}-Room is: ${roomCode}.`,
                         bgColor: `#25222d`,
                         textColor: "#ffffff",
                         closable: true,
