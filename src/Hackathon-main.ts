@@ -409,3 +409,25 @@ function addEndGroupingButton() {
             WA.ui.actionBar.removeButton('endGrouping-btn');
         }
     }); });
+
+    WA.onInit().then(() => {
+        const handleLockAllChange = () => {
+            const lockAll = WA.state.lockAll;
+            if (lockAll === "locked") {
+                WA.room.hideLayer("above_opened");
+                WA.room.hideLayer("rooms_opened");
+                WA.room.showLayer("rooms_closed");
+            } else if (lockAll === "open") {
+                WA.room.showLayer("above_opened");
+                WA.room.showLayer("rooms_opened");
+                WA.room.hideLayer("rooms_closed");
+            }
+        };
+
+        handleLockAllChange();
+
+        WA.state.onVariableChange('lockAll').subscribe(() => {
+            handleLockAllChange();
+        });
+    });
+
