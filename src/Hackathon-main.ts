@@ -347,6 +347,8 @@ WA.onInit().then(() => {
             });
         });
     
+     
+
     WA.onInit().then(() => {
         WA.event.on('ping').subscribe((value) => {
             if (value.data === 'start') {
@@ -378,4 +380,4 @@ WA.onInit().then(() => {
                 WA.chat.sendChatMessage(endMessage, "system");
             }
         });
-    })});
+    });});
