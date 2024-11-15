@@ -145,8 +145,9 @@ setTimeout(() => {
 };
 
 function removeGroupButton() {
+    WA.onInit().then(() => {
     WA.ui.actionBar.removeButton('roomNavigate-btn');
-}
+})}
 
 WA.onInit().then(() => {
     WA.event.on('ping').subscribe((value) => {
@@ -162,6 +163,7 @@ WA.onInit().then(() => {
         }
     });
 });
+
 WA.onInit().then(() => {
     const playerId = WA.player.uuid;
     if (playerId) {
@@ -297,7 +299,7 @@ WA.onInit().then(() => {
                 }
             });
         WA.onInit().then(() => {
-            if (WA.player.tags.includes("admin")) {
+            if (WA.player.tags.includes("editor")) {
                 WA.state.onVariableChange('showGroupingButton').subscribe({
                     next: () => {
                         const showGroupingButton = WA.state.showGroupingButton;
