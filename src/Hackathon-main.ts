@@ -373,7 +373,7 @@ WA.onInit().then(() => {
                     'es-ES': "Actualmente no hay ninguna fase de grupo activa. Por favor, reúnanse de nuevo con todos los demás.",
                     'zh-CN': "目前没有活跃的小组阶段。请与其他人重新组合。",
                     'ar-SA': "لا توجد مرحلة مجموعة نشطة حاليًا. يرجى التجمع مرة أخرى مع الجميع.",
-                    'de-DE': "Derzeit ist keine Gruppenphase aktiv. Bitte sammle dich wieder mit allen anderen."
+                    'de-DE': "Aktuell ist keine Gruppenphase aktiv. Bitte sammle dich wieder mit allen anderen."
                 };
         
                 const endMessage = endTranslations[WA.player.language as keyof typeof endTranslations] || endTranslations['en-US'];
