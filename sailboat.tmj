@@ -3224,39 +3224,6 @@
                  "y":917.75
                 }, 
                 {
-                 "height":0,
-                 "id":9,
-                 "name":"bot-url",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"default",
-                         "type":"string",
-                         "value":"https:\/\/chat.cocreation.world\/c3-o-mat"
-                        }, 
-                        {
-                         "name":"description",
-                         "type":"string",
-                         "value":"The bot URL at the info booth."
-                        }, 
-                        {
-                         "name":"label",
-                         "type":"string",
-                         "value":"Bot-URL"
-                        }, 
-                        {
-                         "name":"persist",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"variable",
-                 "visible":true,
-                 "width":0,
-                 "x":1167.51,
-                 "y":911.15
-                }, 
-                {
                  "height":64.75,
                  "id":10,
                  "name":"bot-middle",
@@ -3626,7 +3593,40 @@
          "draworder":"topdown",
          "id":83,
          "name":"configuration",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":30,
+                 "name":"bot-url",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"default",
+                         "type":"string",
+                         "value":"https:\/\/chat.cocreation.world\/smutje"
+                        }, 
+                        {
+                         "name":"description",
+                         "type":"string",
+                         "value":"The bot URL at the info booth."
+                        }, 
+                        {
+                         "name":"label",
+                         "type":"string",
+                         "value":"Bot-URL"
+                        }, 
+                        {
+                         "name":"persist",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"variable",
+                 "visible":true,
+                 "width":0,
+                 "x":1180,
+                 "y":933
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -5002,7 +5002,7 @@
          "y":0
         }],
  "nextlayerid":86,
- "nextobjectid":30,
+ "nextobjectid":31,
  "orientation":"orthogonal",
  "properties":[
         {
