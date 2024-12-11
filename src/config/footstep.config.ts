@@ -3,65 +3,65 @@ import { MaterialType } from "../models/footstep.model";
 
 export const soundFiles: Record<MaterialType, string[]> = {
   [MaterialType.wood]: [
-    "/sounds/wood_01_a.wav",
-    "/sounds/wood_01_b.wav",
-    "/sounds/wood_01_c.wav",
-    "/sounds/wood_01_d.wav"
+    "wood_01_a.wav",
+    "wood_01_b.wav",
+    "wood_01_c.wav",
+    "wood_01_d.wav",
   ],
   [MaterialType.forest]: [
-    "/sounds/forest_01_a.wav",
-    "/sounds/forest_01_b.wav",
-    "/sounds/forest_01_c.wav",
-    "/sounds/forest_01_d.wav",
-    "/sounds/forest_01_e.wav"
+    "forest_01_a.wav",
+    "forest_01_b.wav",
+    "forest_01_c.wav",
+    "forest_01_d.wav",
+    "forest_01_e.wav",
   ],
   [MaterialType.snow]: [
-    "/sounds/snow_01_a.wav",
-    "/sounds/snow_01_b.wav",
-    "/sounds/snow_01_c.wav",
-    "/sounds/snow_01_d.wav"
+    "snow_01_a.wav",
+    "snow_01_b.wav",
+    "snow_01_c.wav",
+    "snow_01_d.wav",
   ],
   [MaterialType.marble]: [
-    "/sounds/marble_01_a.wav",
-    "/sounds/marble_01_b.wav",
-    "/sounds/marble_01_c.wav",
-    "/sounds/marble_01_d.wav"
+    "marble_01_a.wav",
+    "marble_01_b.wav",
+    "marble_01_c.wav",
+    "marble_01_d.wav",
   ],
   [MaterialType.mud]: [
-    "/sounds/mud_01_a.wav",
-    "/sounds/mud_01_b.wav",
-    "/sounds/mud_01_c.wav",
-    "/sounds/mud_01_d.wav"
+    "mud_01_a.wav",
+    "mud_01_b.wav",
+    "mud_01_c.wav",
+    "mud_01_d.wav",
   ],
   [MaterialType.path]: [
-    "/sounds/path_01_a.wav",
-    "/sounds/path_01_b.wav",
-    "/sounds/path_01_c.wav",
-    "/sounds/path_01_d.wav",
-    "/sounds/path_01_e.wav"
+    "path_01_a.wav",
+    "path_01_b.wav",
+    "path_01_c.wav",
+    "path_01_d.wav",
+    "path_01_e.wav",
   ],
   [MaterialType.stone]: [
-    "/sounds/stone_01_a.wav",
-    "/sounds/stone_01_b.wav",
-    "/sounds/stone_01_c.wav",
-    "/sounds/stone_01_d.wav",
-    "/sounds/stone_01_e.wav"
+    "stone_01_a.wav",
+    "stone_01_b.wav",
+    "stone_01_c.wav",
+    "stone_01_d.wav",
+    "stone_01_e.wav",
   ],
   [MaterialType.water]: [
-    "/sounds/water_01_a.wav",
-    "/sounds/water_01_b.wav",
-    //"/sounds/water_01_c.wav" (Doesnt sound good)
+    "water_01_a.wav",
+    "water_01_b.wav",
+    //"water_01_c.wav" (Doesnt sound good)
   ],
   [MaterialType.sand]: [
-    "/sounds/sand_01_a.wav",
-    "/sounds/sand_01_b.wav",
-    "/sounds/sand_01_c.wav"
-    //"/sounds/water_01_c.wav" (Doesnt sound good)
+    "sand_01_a.wav",
+    "sand_01_b.wav",
+    "sand_01_c.wav",
+    //"water_01_c.wav" (Doesnt sound good)
   ],
 };
-
+///some sounds are missing, but you can add them here
 export const audioConfig: SoundConfig = {
-  volume: 0.15,
+  volume: 0.01,
   loop: false,
   rate: 1.5,
   detune: 1,

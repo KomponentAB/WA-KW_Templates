@@ -11,7 +11,7 @@ function playRandomSound(material: MaterialType) {
 
   const randomIndex = Math.floor(Math.random() * soundFiles[material].length);
   mySound = WA.sound.loadSound(
-    `${import.meta.env.BASE_URL}${soundFiles[material][randomIndex]}`
+    `${import.meta.env.BASE_URL}/sounds/${soundFiles[material][randomIndex]}`
   );
   mySound.play(audioConfig);
 }
