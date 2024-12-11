@@ -3448,7 +3448,7 @@
                         {
                          "name":"material",
                          "type":"string",
-                         "value":"path"
+                         "value":"wood"
                         }, 
                         {
                          "name":"stepSound",
@@ -3463,7 +3463,7 @@
                  "y":2677.51320175439
                 }, 
                 {
-                 "height":469.535,
+                 "height":616.61442288836,
                  "id":19,
                  "name":"wood_area_1",
                  "properties":[
@@ -3480,39 +3480,14 @@
                  "rotation":0,
                  "type":"area",
                  "visible":true,
-                 "width":1536.28787878788,
-                 "x":700.649255715045,
+                 "width":1532.0856095625,
+                 "x":704.851524940427,
                  "y":706.540314992025
                 }, 
                 {
-                 "height":0,
-                 "id":22,
-                 "name":"pool_area_1",
-                 "polygon":[
-                        {
-                         "x":159.666666666667,
-                         "y":128.333333333333
-                        }, 
-                        {
-                         "x":32.3333333333333,
-                         "y":129.333333333333
-                        }, 
-                        {
-                         "x":-33.3333333333333,
-                         "y":65.3333333333334
-                        }, 
-                        {
-                         "x":-34.3333333333333,
-                         "y":0.666666666666742
-                        }, 
-                        {
-                         "x":30.6666666666667,
-                         "y":-65.3333333333333
-                        }, 
-                        {
-                         "x":159.333333333333,
-                         "y":-66.6666666666666
-                        }],
+                 "height":196.666666666667,
+                 "id":23,
+                 "name":"pool",
                  "properties":[
                         {
                          "name":"material",
@@ -3527,9 +3502,119 @@
                  "rotation":0,
                  "type":"area",
                  "visible":true,
-                 "width":0,
-                 "x":480.19912855266,
-                 "y":926.482679747828
+                 "width":198,
+                 "x":442,
+                 "y":860.666666666667
+                }, 
+                {
+                 "height":130.551949152542,
+                 "id":25,
+                 "name":"pool_area-1",
+                 "properties":[
+                        {
+                         "name":"material",
+                         "type":"string",
+                         "value":"marble"
+                        }, 
+                        {
+                         "name":"stepSound",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":284.14238688892,
+                 "x":418.231369939767,
+                 "y":1062.33293423449
+                }, 
+                {
+                 "height":130.552,
+                 "id":26,
+                 "name":"pool_area-2",
+                 "properties":[
+                        {
+                         "name":"material",
+                         "type":"string",
+                         "value":"marble"
+                        }, 
+                        {
+                         "name":"stepSound",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":284.142,
+                 "x":415.430050567306,
+                 "y":702.338511836392
+                }, 
+                {
+                 "height":227.204192183779,
+                 "id":27,
+                 "name":"pool_area-4",
+                 "properties":[
+                        {
+                         "name":"material",
+                         "type":"string",
+                         "value":"marble"
+                        }, 
+                        {
+                         "name":"stepSound",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":41.8111413363217,
+                 "x":657.760909230985,
+                 "y":834.009614231685
+                }, 
+                {
+                 "height":238.410051267685,
+                 "id":28,
+                 "name":"pool_area-3",
+                 "properties":[
+                        {
+                         "name":"material",
+                         "type":"string",
+                         "value":"marble"
+                        }, 
+                        {
+                         "name":"stepSound",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":149.669343451464,
+                 "x":292.863885495167,
+                 "y":824.904793668581
+                }, 
+                {
+                 "height":31.0980515478358,
+                 "id":29,
+                 "name":"pool_area-5",
+                 "properties":[
+                        {
+                         "name":"material",
+                         "type":"string",
+                         "value":"wood"
+                        }, 
+                        {
+                         "name":"stepSound",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":118.852359013868,
+                 "x":166.095602255218,
+                 "y":938.366088387729
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -4917,7 +5002,7 @@
          "y":0
         }],
  "nextlayerid":86,
- "nextobjectid":23,
+ "nextobjectid":30,
  "orientation":"orthogonal",
  "properties":[
         {
