@@ -3209,7 +3209,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"{{{ bot-url }}}?position=top"
+                         "value":"{{{ bot-url }}}?deck=top"
                         }, 
                         {
                          "name":"openWebsiteAllowApi",
@@ -3264,7 +3264,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"{{{ bot-url }}}?position=middle"
+                         "value":"{{{ bot-url }}}?deck=middle"
                         }, 
                         {
                          "name":"openWebsiteAllowApi",
@@ -3286,7 +3286,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"{{{ bot-url }}}?position=bottom"
+                         "value":"{{{ bot-url }}}?deck=lower"
                         }, 
                         {
                          "name":"openWebsiteAllowApi",
