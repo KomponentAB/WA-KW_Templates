@@ -61,7 +61,7 @@ export const soundFiles: Record<MaterialType, string[]> = {
 };
 ///some sounds are missing, but you can add them here
 export const audioConfig: SoundConfig = {
-  volume: 0.01,
+  volume: 0.1,
   loop: false,
   rate: 1.5,
   detune: 1,
