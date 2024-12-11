@@ -1,6 +1,8 @@
 /// <reference types="@workadventure/iframe-api-typings" />
+/// <reference types="vite/client" />
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
+import { checkPlayerMaterial, mySound, playRandomSound } from "./footstep";
 
 console.log('Script started successfully');
 
@@ -54,5 +56,24 @@ WA.onInit().then(() => {
         });
     });
 }).catch(e => console.error(e));
+
+WA.onInit().then(async () => {
+    WA.player.onPlayerMove(async ({ x, y, moving }) => {
+      const material = await checkPlayerMaterial({ x, y });
+      console.log(material);
+  
+      if (!material) {
+        return mySound?.stop();
+      }
+  
+      if (!moving && !material) {
+        return mySound?.stop();
+      } else {
+        mySound?.stop();
+        return playRandomSound(material);
+      }
+    });
+  });
+
 
 export {};
