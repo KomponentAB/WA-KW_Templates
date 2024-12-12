@@ -58,10 +58,18 @@ export const soundFiles: Record<MaterialType, string[]> = {
     "sand_01_c.wav",
     //"water_01_c.wav" (Doesnt sound good)
   ],
+  [MaterialType.ice]: [
+    "ice_01.wav",
+    "ice_02.wav",
+    "ice_03.wav",
+    "ice_04.wav",
+  ],
+
+
 };
 ///some sounds are missing, but you can add them here
 export const audioConfig: SoundConfig = {
-  volume: 0.1,
+  volume: 0.05,
   loop: false,
   rate: 1.5,
   detune: 1,
