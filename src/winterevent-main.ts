@@ -96,28 +96,36 @@ WA.onInit()
       });
 
       WA.room.onEnterLayer("gifts").subscribe(async () => {
-      console.log('Player entered gifts layer');
-      const { x, y } = await WA.player.getPosition();
-      console.log('Player position in pixels:', { x, y });
-      const tileX = Math.floor(x / 32);
-      const tileY = Math.floor(y / 32);
-
-      const randomMessageIndex = Math.floor(Math.random() * santaMessages.length);
-      const randomMessage = santaMessages.splice(randomMessageIndex, 1)[0];
-      const mySound = WA.sound.loadSound("./pickup3.wav");
-      const config = {
-        volume: 0.5,
-        loop: false,
-        rate: 1,
-        detune: 1,
-        delay: 0,
-        seek: 0,
-        mute: false
-      };
-      mySound.play(config);
-      WA.event.broadcast('foundGift', { x: tileX, y: tileY });
-      WA.chat.sendChatMessage(randomMessage, "Santa");
-      await levelUp("GIFTS", 1)
+        console.log('Player entered gifts layer');
+        const { x, y } = await WA.player.getPosition();
+        console.log('Player position in pixels:', { x, y });
+        const tileX = Math.floor(x / 32);
+        const tileY = Math.floor(y / 32);
+      
+        const placedGifts = (await WA.state.loadVariable('placedGifts')) as any[];
+        const giftExists = placedGifts.some(gift => gift.x === tileX && gift.y === tileY);
+      
+        if (!giftExists) {
+          console.log('No gift at this position');
+          return;
+        }
+      
+        const randomMessageIndex = Math.floor(Math.random() * santaMessages.length);
+        const randomMessage = santaMessages.splice(randomMessageIndex, 1)[0];
+        const mySound = WA.sound.loadSound("./pickup3.wav");
+        const config = {
+          volume: 0.5,
+          loop: false,
+          rate: 1,
+          detune: 1,
+          delay: 0,
+          seek: 0,
+          mute: false
+        };
+        mySound.play(config);
+        WA.event.broadcast('foundGift', { x: tileX, y: tileY });
+        WA.chat.sendChatMessage(randomMessage, "Santa");
+        await levelUp("GIFTS", 1);
       });
 
       WA.onInit().then(async () => {
@@ -147,6 +155,7 @@ WA.onInit()
 
       WA.onInit().then(() => {
         if (WA.player.tags.includes('Santa')) {
+          
         WA.event.on('ping').subscribe(async (value: any) => {
         if (value.data === 'start') {
           console.log('Starting gift population...');
@@ -154,7 +163,7 @@ WA.onInit()
           WA.event.broadcast('pong', placedGifts);
         }
         });
-
+        WA.event.broadcast("ping","start");
         async function populateGifts() {
         const map = await WA.room.getTiledMap();
         console.log("Room Height: ", map.height);
@@ -198,7 +207,7 @@ WA.onInit()
         return placedGifts;
         }
       }
-      WA.event.broadcast("ping","start");
+    
       });
 
       WA.onInit().then(() => {
