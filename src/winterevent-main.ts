@@ -146,7 +146,7 @@ WA.onInit()
       });
 
       WA.onInit().then(() => {
-      if (WA.player.name === 'Santa') {
+        if (WA.player.tags.includes('Santa')) {
         WA.event.on('ping').subscribe(async (value: any) => {
         if (value.data === 'start') {
           console.log('Starting gift population...');
@@ -184,7 +184,7 @@ WA.onInit()
         }
 
         const giftOptions = 8;
-        const giftsToPlace = 30; // Number of gifts to place
+        const giftsToPlace = 50; // Number of gifts to place
         const placedGifts: { x: number, y: number, tile: string, layer: string }[] = [];
 
         for (let i = 0; i < giftsToPlace; i++) {
@@ -198,6 +198,7 @@ WA.onInit()
         return placedGifts;
         }
       }
+      WA.event.broadcast("ping","start");
       });
 
       WA.onInit().then(() => {
@@ -215,7 +216,8 @@ console.log("Leaderboard URL: ", leaderboardURL.toString());
           }, () => {});})});
 
 WA.onInit().then(async () => {
-  if (WA.player.name === 'Santa') {
+  if (WA.player.tags.includes('Santa')) {
+    WA.event.broadcast("ping","start");
     const initialPosition = await WA.player.getPosition();
     const { x: startX, y: startY } = initialPosition;
 
