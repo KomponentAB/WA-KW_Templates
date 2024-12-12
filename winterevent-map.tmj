@@ -1147,7 +1147,7 @@
                         {
                          "name":"exitUrl",
                          "type":"string",
-                         "value":"winterevent-map.tmj#from-outside"
+                         "value":"#from-outside"
                         }],
                  "rotation":0,
                  "type":"area",
@@ -1181,7 +1181,7 @@
                         {
                          "name":"exitUrl",
                          "type":"string",
-                         "value":"winterevent-map.tmj#from-inside"
+                         "value":"#from-inside"
                         }],
                  "rotation":0,
                  "type":"area",
