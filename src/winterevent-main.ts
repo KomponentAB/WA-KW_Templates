@@ -202,7 +202,7 @@ WA.onInit()
 
       WA.onInit().then(() => {
          
-        WA.room.area.onEnter('santasCrashSite').subscribe(() => {const leaderboardURL = getLeaderboardURL("QUEST_KEY");
+        WA.room.area.onEnter('santasCrashSite').subscribe(() => {const leaderboardURL = getLeaderboardURL("GIFTS");
 console.log("Leaderboard URL: ", leaderboardURL.toString());
           // Open a modal with the leaderboard
           let url = leaderboardURL.toString();
