@@ -201,12 +201,14 @@ WA.onInit()
       });
 
       WA.onInit().then(() => {
+         
         WA.room.area.onEnter('santasCrashSite').subscribe(() => {const leaderboardURL = getLeaderboardURL("QUEST_KEY");
-
+console.log("Leaderboard URL: ", leaderboardURL.toString());
           // Open a modal with the leaderboard
+          let url = leaderboardURL.toString();
           WA.ui.modal.openModal({
               title: "GiftsQuest Leaderboard",
-              src: leaderboardURL.toString(),
+              src: url,
               position: "left",
               allowApi: false,
               allow: "",
