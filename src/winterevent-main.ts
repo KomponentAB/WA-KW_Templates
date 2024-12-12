@@ -211,18 +211,25 @@ WA.onInit()
       });
 
       WA.onInit().then(() => {
-         
-        WA.room.area.onEnter('santasCrashSite').subscribe(() => {const leaderboardURL = getLeaderboardURL("GIFTS");
-console.log("Leaderboard URL: ", leaderboardURL.toString());
-          // Open a modal with the leaderboard
-          let url = leaderboardURL.toString();
+        WA.room.area.onEnter('santasCrashSite').subscribe(() => {
+          let url;
+          if (WA.player.tags.includes('member')) {
+            const leaderboardURL = getLeaderboardURL("GIFTS");
+            console.log("Leaderboard URL: ", leaderboardURL.toString());
+            url = leaderboardURL.toString();
+          } else {
+            url = "https://cocreation.world/pub/xmas24";
+          }
+          // Open a modal with the URL
           WA.ui.modal.openModal({
-              title: "GiftsQuest Leaderboard",
-              src: url,
-              position: "left",
-              allowApi: false,
-              allow: "",
-          }, () => {});})});
+            title: "GiftsQuest Leaderboard",
+            src: url,
+            position: "left",
+            allowApi: false,
+            allow: "",
+          }, () => {});
+        });
+      });
 
 WA.onInit().then(async () => {
   if (WA.player.tags.includes('Santa')) {
