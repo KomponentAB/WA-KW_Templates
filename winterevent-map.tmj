@@ -1546,7 +1546,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"https:\/\/radio.gathletics.de\/public\/pixelradio\/embed-requests"
+                         "value":"https:\/\/radio.gathletics.de\/public\/xmas\/embed-requests?theme=dark"
                         }, 
                         {
                          "name":"openWebsiteTrigger",
@@ -1573,7 +1573,7 @@
                         {
                          "name":"playAudio",
                          "type":"string",
-                         "value":"https:\/\/radio.gathletics.de:8000\/radio.mp3"
+                         "value":"https:\/\/radio.gathletics.de:8040\/radio.mp3"
                         }],
                  "rotation":0,
                  "type":"area",
