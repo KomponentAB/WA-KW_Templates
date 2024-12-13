@@ -265,15 +265,13 @@ WA.onInit().then(async () => {
       }
     };
 
-    startMoving();
-
-    WA.player.proximityMeeting.onJoin().subscribe(() => {
-      console.log('Player joined a proximity meeting, stopping movement');
+    WA.room.area.onEnter('santasCrashSite').subscribe(() => {
+      console.log('Player entered santasCrashSite, stopping movement');
       stopMoving();
     });
 
-    WA.player.proximityMeeting.onLeave().subscribe(() => {
-      console.log('Player left a proximity meeting, resuming movement');
+    WA.room.area.onLeave('santasCrashSite').subscribe(() => {
+      console.log('Player left santasCrashSite, starting movement');
       startMoving();
     });
   }
