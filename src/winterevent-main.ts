@@ -237,8 +237,6 @@ WA.onInit().then(async () => {
     const initialPosition = await WA.player.getPosition();
     const { x: startX, y: startY } = initialPosition;
 
-    let moveInterval: NodeJS.Timeout | null = null;
-
     const moveSantaRandomly = () => {
       const minX = Math.max(startX - 32, 0);
       const maxX = startX + 32;
@@ -252,28 +250,7 @@ WA.onInit().then(async () => {
       WA.player.moveTo(randomX, randomY, 1);
     };
 
-    const startMoving = () => {
-      if (!moveInterval) {
-        moveInterval = setInterval(moveSantaRandomly, Math.random() * 5000 + 2000); // Random interval between 2 to 7 seconds
-      }
-    };
-
-    const stopMoving = () => {
-      if (moveInterval) {
-        clearInterval(moveInterval);
-        moveInterval = null;
-      }
-    };
-
-    WA.room.area.onEnter('santasCrashSite').subscribe(() => {
-      console.log('Player entered santasCrashSite, stopping movement');
-      stopMoving();
-    });
-
-    WA.room.area.onLeave('santasCrashSite').subscribe(() => {
-      console.log('Player left santasCrashSite, starting movement');
-      startMoving();
-    });
+    setInterval(moveSantaRandomly, Math.random() * 5000 + 2000); // Random interval between 2 to 7 seconds
   }
 });
 export {};
