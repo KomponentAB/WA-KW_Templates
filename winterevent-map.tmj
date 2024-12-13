@@ -1655,7 +1655,7 @@
                  "y":494
                 }, 
                 {
-                 "height":74.3455628723735,
+                 "height":85.0126671638316,
                  "id":38,
                  "name":"santasCrashSite",
                  "properties":[
@@ -1667,9 +1667,9 @@
                  "rotation":0,
                  "type":"area",
                  "visible":true,
-                 "width":114.048918156162,
-                 "x":716.415133527908,
-                 "y":1132.9175030557
+                 "width":131.280394319287,
+                 "x":718.876772979783,
+                 "y":1133.73804953966
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2248,7 +2248,7 @@
          "name":"hide",
          "opacity":1,
          "type":"group",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }],
