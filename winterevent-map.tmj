@@ -1571,6 +1571,11 @@
                  "name":"soundArea",
                  "properties":[
                         {
+                         "name":"audioVolume",
+                         "type":"string",
+                         "value":"0.25"
+                        }, 
+                        {
                          "name":"playAudio",
                          "type":"string",
                          "value":"https:\/\/radio.gathletics.de:8040\/radio.mp3"
