@@ -194,7 +194,7 @@ WA.onInit()
         }
 
         const giftOptions = 8;
-        const giftsToPlace = 50; // Number of gifts to place
+        const giftsToPlace = 100; // Number of gifts to place
         const placedGifts: { x: number, y: number, tile: string, layer: string }[] = [];
 
         for (let i = 0; i < giftsToPlace; i++) {
