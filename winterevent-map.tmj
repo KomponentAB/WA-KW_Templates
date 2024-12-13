@@ -1337,8 +1337,8 @@
                  "type":"area",
                  "visible":true,
                  "width":1870.8471798607,
-                 "x":192.789183775664,
-                 "y":1832.01602403605
+                 "x":187.429430816323,
+                 "y":1848.41643577048
                 }, 
                 {
                  "height":1572.72727272727,
@@ -1535,57 +1535,8 @@
                  "type":"area",
                  "visible":true,
                  "width":1839.5,
-                 "x":198.25,
-                 "y":1818.2325
-                }, 
-                {
-                 "height":94.6350762527231,
-                 "id":33,
-                 "name":"jukebox",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"https:\/\/radio.gathletics.de\/public\/xmas\/embed-requests?theme=dark"
-                        }, 
-                        {
-                         "name":"openWebsiteTrigger",
-                         "type":"string",
-                         "value":"onaction"
-                        }, 
-                        {
-                         "name":"openWebsiteTriggerMessage",
-                         "type":"string",
-                         "value":"[SPACE] to request a song from the Jukebox"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":101.443355119826,
-                 "x":1691.58000079464,
-                 "y":1943.10141314209
-                }, 
-                {
-                 "height":446.666666666667,
-                 "id":34,
-                 "name":"soundArea",
-                 "properties":[
-                        {
-                         "name":"audioVolume",
-                         "type":"string",
-                         "value":"0.25"
-                        }, 
-                        {
-                         "name":"playAudio",
-                         "type":"string",
-                         "value":"https:\/\/radio.gathletics.de:8040\/radio.mp3"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":1152,
-                 "x":893.333333333333,
-                 "y":1856
+                 "x":197.121161434208,
+                 "y":1802.03726925716
                 }, 
                 {
                  "height":181.818181818182,
