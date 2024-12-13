@@ -219,7 +219,7 @@ WA.onInit()
             console.log("Leaderboard URL: ", leaderboardURL.toString());
             url = leaderboardURL.toString();
           } else {
-            url = "https://cocreation.world/pub/xmas24";
+            url = "https://cocreation.world/pub/a-simple-guide-to-joining-santa-s-virtual-gift-rescue-adventure";
           }
           // Open a modal with the URL
           WA.ui.modal.openModal({
