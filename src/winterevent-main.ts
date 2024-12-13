@@ -237,6 +237,8 @@ WA.onInit().then(async () => {
     const initialPosition = await WA.player.getPosition();
     const { x: startX, y: startY } = initialPosition;
 
+    let moveInterval: NodeJS.Timeout | null = null;
+
     const moveSantaRandomly = () => {
       const minX = Math.max(startX - 32, 0);
       const maxX = startX + 32;
@@ -250,7 +252,30 @@ WA.onInit().then(async () => {
       WA.player.moveTo(randomX, randomY, 1);
     };
 
-    setInterval(moveSantaRandomly, Math.random() * 5000 + 2000); // Random interval between 2 to 7 seconds
+    const startMoving = () => {
+      if (!moveInterval) {
+        moveInterval = setInterval(moveSantaRandomly, Math.random() * 5000 + 2000); // Random interval between 2 to 7 seconds
+      }
+    };
+
+    const stopMoving = () => {
+      if (moveInterval) {
+        clearInterval(moveInterval);
+        moveInterval = null;
+      }
+    };
+
+    startMoving();
+
+    WA.player.proximityMeeting.onJoin().subscribe(() => {
+      console.log('Player joined a proximity meeting, stopping movement');
+      stopMoving();
+    });
+
+    WA.player.proximityMeeting.onLeave().subscribe(() => {
+      console.log('Player left a proximity meeting, resuming movement');
+      startMoving();
+    });
   }
 });
 export {};
