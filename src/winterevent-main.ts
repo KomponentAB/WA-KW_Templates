@@ -112,9 +112,10 @@ WA.onInit()
       
         const randomMessageIndex = Math.floor(Math.random() * santaMessages.length);
         const randomMessage = santaMessages.splice(randomMessageIndex, 1)[0];
-        const mySound = WA.sound.loadSound("./pickup3.wav");
+        const randomSoundIndex = Math.floor(Math.random() * 4) + 1;
+        const mySound = WA.sound.loadSound(`./santa-sigh-${randomSoundIndex}.mp3`);
         const config = {
-          volume: 0.5,
+          volume: 0.3,
           loop: false,
           rate: 1,
           detune: 1,
