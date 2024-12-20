@@ -46,14 +46,9 @@ You can also test the optimized map as it will be in production by running:
 npm run build
 npm run prod
 ```
+### License
 
-## Licenses
-
-This project contains multiple licenses as follows:
-
-* [Code license](./LICENSE.code) *(all files except those for other licenses)*
-* [Map license](./LICENSE.map) *(`map.tmj` and the map visual as well)*
-* [Assets license](./LICENSE.assets) *(the files inside the `src/assets/` folder)*
+© [2024] KomponentAB. All rights reserved. This repository provides a set of templates, including but not limited to graphics, assets, sounds, and tilesets, protected by copyright. Unauthorized resale or redistribution of any content from this repository is strictly prohibited without explicit permission. Any derivatives or projects created based on this repository must publicly acknowledge the original source by pointing back to this repository and informing us via contact@komponent.works.
 
 ### About third party assets
 
