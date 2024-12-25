@@ -3,6 +3,7 @@
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 import { checkPlayerMaterial, mySound, playRandomSound } from "./footstep";
+import {ActionMessage} from "@workadventure/iframe-api-typings";
 
 console.log('Script started successfully');
 
@@ -73,6 +74,20 @@ WA.room.area.onLeave('hideRoofZone').subscribe(() => {
     WA.room.showLayer('above-roof/above-roof3');
 })})
 
+//alternative way to hide the roof
+
+WA.onInit().then(() => {
+    WA.room.onEnterLayer('hideRoof').subscribe(() => {
+        WA.room.hideLayer('above-roof/above-roof1')
+        WA.room.hideLayer('above-roof/above-roof2')
+        WA.room.hideLayer('above-roof/above-roof3');
+    })
+    WA.room.onLeaveLayer('hideRoof').subscribe(() => {
+        WA.room.showLayer('above-roof/above-roof1')
+        WA.room.showLayer('above-roof/above-roof2')
+        WA.room.showLayer('above-roof/above-roof3');
+    })})
+    
 WA.onInit().then(async () => {
     WA.player.onPlayerMove(async ({ x, y, moving }) => {
       const material = await checkPlayerMaterial({ x, y });
@@ -90,5 +105,55 @@ WA.onInit().then(async () => {
       }
     });
   });
+
+  
+// Waiting for the API to be ready
+WA.onInit().then(() => {
+    let actionMessage: ActionMessage | undefined;
+    let name: string;
+
+    // When someone enters the bellZone area
+    WA.room.area.onEnter("bellZone").subscribe(() => {
+        name = WA.player.name;
+        // Display the action message
+        actionMessage = WA.ui.displayActionMessage({
+            type: "message",
+            message: "Press SPACE to ring the bell",
+            callback: () => {
+                // When space is pressed, we send a "bell-rang" signal to everyone on the map.
+                WA.event.broadcast("bell-rang", `${name}` );
+            }
+        });
+    });
+
+    // When someone leaves the bellZone area
+    WA.room.area.onLeave("bellZone").subscribe(() => {
+        if (actionMessage !== undefined) {
+            // Hide the action message
+            actionMessage.remove();
+            actionMessage = undefined;
+        }
+    });
+
+    
+        
+
+
+WA.onInit().then(() => {
+    const bellSound = WA.sound.loadSound("./error2.wav");
+    WA.event.on("bell-rang").subscribe(async (eventData: { data?: unknown; senderId?: number; name: string }) => {
+        bellSound.play({});
+        WA.ui.banner.openBanner({
+            id: "bellNotification",
+            text: `${eventData.data} has rang the bell!`,
+            bgColor: "#ffcc00",
+            textColor: "#000000",
+            closable: true,
+
+        });
+    });
+});
+
+}).catch(e => console.error(e));
 
 export {};
