@@ -3,7 +3,8 @@
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 import { checkPlayerMaterial, mySound, playRandomSound } from "./footstep";
-
+import { setupFireworks } from "./fireworks";
+setupFireworks();
 console.log('Script started successfully');
 
 WA.onInit().then(() => {        WA.nav.goToRoom("#start")})

@@ -5,6 +5,8 @@ import { Subscription } from "rxjs";
 import { checkPlayerMaterial, mySound, playRandomSound } from "./footstep";
 import { santaMessages } from "./santa";
 import { levelUp, getLeaderboard, getLeaderboardURL } from "@workadventure/quests";
+import { setupFireworks } from "./fireworks";
+setupFireworks();
 
 console.log('Script started successfully');
 

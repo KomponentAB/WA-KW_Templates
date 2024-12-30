@@ -4,7 +4,8 @@
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 import { checkPlayerMaterial, mySound, playRandomSound } from "./footstep";
 import {ActionMessage} from "@workadventure/iframe-api-typings";
-
+import { setupFireworks } from "./fireworks";
+setupFireworks();
 console.log('Script started successfully');
 
 let currentPopup: any = undefined;
