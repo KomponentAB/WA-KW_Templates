@@ -45,7 +45,7 @@ export async function triggerFirework(
 
   WA.room.setTiles(tiles);
 
-  playSound(`${import.meta.env.BASE_URL}/sounds/firework_single.mp3`);
+  playSound(`./sounds/firework_single.mp3`);
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
