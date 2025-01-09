@@ -1,6 +1,18 @@
 /// <reference types="@workadventure/iframe-api-typings" />
 
-console.log('Script started successfully');
+
+import { bootstrapExtra } from "@workadventure/scripting-api-extra";
+
+WA.onInit().then(() => {
+    console.log('Scripting API ready');
+    console.log('Player tags: ',WA.player.tags)
+
+    // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
+    bootstrapExtra().then(() => {
+        console.log('Scripting API Extra ready');
+    }).catch(e => console.error(e));
+
+}).catch(e => console.error(e));
 
 type FloorName = 'top' | 'middle' | 'bottom';
 const LAYERS = {

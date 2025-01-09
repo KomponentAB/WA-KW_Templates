@@ -254,13 +254,6 @@
                                  "y":224
                                 }, 
                                 {
-                                 "id":10,
-                                 "template":"..\/Avatar-based-scientific-writing\/tiled\/website.tx",
-                                 "type":"area",
-                                 "x":320,
-                                 "y":224
-                                }, 
-                                {
                                  "height":32,
                                  "id":11,
                                  "name":"website_onAction",
@@ -623,8 +616,7 @@
                                  "width":64,
                                  "x":256,
                                  "y":480
-                                },
-                            
+                                }, 
                                 {
                                  "height":0,
                                  "id":61,
@@ -639,7 +631,7 @@
                                         {
                                          "name":"bellSound",
                                          "type":"string",
-                                         "value":"https:\/\/assets.mixkit.co\/active_storage\/sfx\/600\/600-preview.mp3\n"
+                                         "value":"https:\/\/assets.mixkit.co\/active_storage\/sfx\/600\/600-preview.mp3"
                                         }, 
                                         {
                                          "name":"soundRadius",
@@ -652,7 +644,8 @@
                                  "width":0,
                                  "x":328,
                                  "y":480
-                                }, 
+                                },
+                            
                                 {
                                  "height":32,
                                  "id":62,
@@ -681,26 +674,9 @@
                                  "y":96
                                 }, 
                                 {
-                                 "height":32,
-                                 "id":66,
-                                 "name":"website_on_map",
-                                 "properties":[
-                                        {
-                                         "name":"url",
-                                         "type":"string",
-                                         "value":"https:\/\/..."
-                                        }],
-                                 "rotation":0,
-                                 "type":"website",
-                                 "visible":true,
-                                 "width":32,
-                                 "x":384,
-                                 "y":224
-                                }, 
-                                {
                                  "height":44,
                                  "id":68,
-                                 "name":"website\/text_on_map",
+                                 "name":"website-text_on_map",
                                  "properties":[
                                         {
                                          "name":"url",
@@ -1691,8 +1667,8 @@
                          "type":"variable",
                          "visible":true,
                          "width":0,
-                         "x":64,
-                         "y":512
+                         "x":88,
+                         "y":536
                         }],
                  "opacity":1,
                  "type":"objectgroup",
