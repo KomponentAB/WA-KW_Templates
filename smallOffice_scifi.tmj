@@ -5569,7 +5569,7 @@
         {
          "columns":30,
          "firstgid":16071,
-         "image":"..\/Hub\/tilesets\/firework_spritesheets.png",
+         "image":"..\/tilesets\/firework_spritesheets.png",
          "imageheight":576,
          "imagewidth":960,
          "margin":0,
