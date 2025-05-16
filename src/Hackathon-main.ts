@@ -14,6 +14,19 @@ WA.onInit().then(() => {
 
 
 console.log('Script started successfully');
+WA.onInit().then(async () => {
+    const areas = await WA.mapEditor.area.list();
+    const scavengerAreas = areas.filter(area => area.name.startsWith("SCAVENGER_"));
+
+    for (const area of scavengerAreas) {
+        const [_, questName, objectName, exp] = area.name.split("_");
+
+        WA.mapEditor.onEnter(area.name).subscribe(() => {
+            const message = `You leveled up in Quest "${questName}" by interacting with "${objectName}" and gained ${exp} EXP!`;
+            WA.chat.sendChatMessage(message, "system");
+        });
+    }
+});
 
 WA.onInit().then(() => {
     console.log('Scripting API ready');
