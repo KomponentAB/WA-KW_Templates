@@ -1,4 +1,5 @@
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
+import { levelUp } from "@workadventure/quests";
 
 
 
@@ -26,9 +27,20 @@ WA.onInit().then(async () => {
     for (const area of scavengerAreas) {
         const [_, questName, objectName, exp] = area.name.split("_");
 
-        WA.mapEditor.area.onEnter(area.name).subscribe(() => {
-            const message = `You leveled up in Quest "${questName}" by interacting with "${objectName}" and gained ${exp} EXP!`;
-            WA.chat.sendChatMessage(message, "system");
+        WA.mapEditor.area.onEnter(area.name).subscribe(async () => {
+            const playerStateKey = `collected_${area.name}`;
+            const alreadyCollected = await WA.player.state[playerStateKey];
+
+            if (!alreadyCollected) {
+                const numericExp = Number(exp);
+                const message = `You leveled up in Quest "${questName}" by interacting with "${objectName}" and gained ${numericExp} EXP!`;
+                WA.chat.sendChatMessage(message, "system");
+                levelUp(questName, numericExp);
+                WA.player.state[playerStateKey] = "collected";
+            } else {
+                const message = `You have already collected the item "${objectName}" in Quest "${questName}".`;
+                WA.chat.sendChatMessage(message, "system");
+            }
         });
     }
 });
