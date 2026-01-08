@@ -4,11 +4,7 @@ import { bootstrapExtra, Properties } from "@workadventure/scripting-api-extra";
 import { Subscription } from "rxjs";
 import { checkPlayerMaterial, mySound, playRandomSound } from "./footstep";
 import { santaMessages } from "./santa";
-import {
-  levelUp,
-  getLeaderboard,
-  getLeaderboardURL,
-} from "@workadventure/quests";
+import { levelUp, getLeaderboard } from "@workadventure/quests";
 import { setupFireworks } from "./fireworks";
 setupFireworks();
 
