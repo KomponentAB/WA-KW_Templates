@@ -4,7 +4,11 @@ import { bootstrapExtra, Properties } from "@workadventure/scripting-api-extra";
 import { Subscription } from "rxjs";
 import { checkPlayerMaterial, mySound, playRandomSound } from "./footstep";
 import { santaMessages } from "./santa";
-import { levelUp, getLeaderboard } from "@workadventure/quests";
+import {
+  levelUp,
+  getLeaderboard,
+  getLeaderboardURL,
+} from "@workadventure/quests";
 import { setupFireworks } from "./fireworks";
 setupFireworks();
 
@@ -229,6 +233,30 @@ WA.onInit().then(() => {
       return placedGifts;
     }
   }
+});
+
+WA.onInit().then(() => {
+  WA.room.area.onEnter("santasCrashSite").subscribe(() => {
+    let url;
+    if (WA.player.tags.includes("member")) {
+      const leaderboardURL = getLeaderboardURL("GIFTS");
+      console.log("Leaderboard URL: ", leaderboardURL.toString());
+      url = leaderboardURL.toString();
+    } else {
+      url = "https://komponent.works";
+    }
+    // Open a modal with the URL
+    WA.ui.modal.openModal(
+      {
+        title: "GiftsQuest Leaderboard",
+        src: url,
+        position: "left",
+        allowApi: false,
+        allow: "",
+      },
+      () => {}
+    );
+  });
 });
 
 WA.onInit().then(async () => {
