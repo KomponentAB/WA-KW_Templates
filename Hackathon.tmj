@@ -6595,7 +6595,7 @@
                 {
                  "name":"tag",
                  "type":"string",
-                 "value":"editor"
+                 "value":""
                 }],
          "type":"group",
          "visible":true,
