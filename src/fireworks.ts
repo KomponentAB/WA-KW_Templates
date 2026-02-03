@@ -14,7 +14,7 @@ export function setupFireworksButton(): void {
   WA.ui.actionBar.addButton({
     id: button,
     label: "Fireworks! 🎆",
-    type: "button",
+    //  type: "button",
     callback: () => {
       WA.ui.actionBar.removeButton(button); //remove button temporarily
       triggerFirework()
@@ -38,7 +38,7 @@ interface FireworkConfig {
 }
 
 export async function triggerFirework(
-  config?: FireworkConfig
+  config?: FireworkConfig,
 ): Promise<FireworkConfig> {
   const tileConfig = config || (await generateFireworkConfig());
   const tiles = await generateFireworkTiles(tileConfig);
@@ -81,7 +81,7 @@ export async function triggerFirework(
   }
 
   async function generateFireworkTiles(
-    config: FireworkConfig
+    config: FireworkConfig,
   ): Promise<TileDescriptor[]> {
     const tileConfig: TileDescriptor = {
       x: Math.floor(config.x / 32),
