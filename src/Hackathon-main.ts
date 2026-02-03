@@ -136,7 +136,7 @@ function addGroupButton(groupName: keyof typeof groupIcons) {
 
   WA.ui.actionBar.addButton({
     id: "roomNavigate-btn",
-    // type: "action",
+    type: "action",
     imageSrc: groupIcons[groupName],
     toolTip: "Go to your Breakout-Room.",
     callback: () => {
@@ -281,7 +281,7 @@ WA.onInit().then(() => {
     WA.ui.actionBar.removeButton("startGrouping-btn");
     WA.ui.actionBar.addButton({
       id: "endGrouping-btn",
-      //   type: "action",
+      type: "action",
       imageSrc: svgIcon1,
       toolTip: "End Breakout Grouping",
       callback: () => {
@@ -299,7 +299,7 @@ WA.onInit().then(() => {
     WA.ui.actionBar.removeButton("endGrouping-btn");
     WA.ui.actionBar.addButton({
       id: "startGrouping-btn",
-      //type: "action",
+      type: "action",
       imageSrc: svgIcon2,
       toolTip: "Start Breakout Grouping",
       callback: () => {
