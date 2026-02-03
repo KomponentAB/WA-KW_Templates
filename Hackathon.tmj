@@ -4015,17 +4015,6 @@
          "name":"floorLayer",
          "objects":[
                 {
-                 "height":55.7152005740263,
-                 "id":2,
-                 "name":"needHelpPopup",
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":64.6527082009584,
-                 "x":1041.2276670691,
-                 "y":1872.29711112504
-                }, 
-                {
                  "height":0,
                  "id":22,
                  "name":"doorBlue",

@@ -253,6 +253,8 @@ WA.onInit().then(() => {
         position: "left",
         allowApi: false,
         allow: "",
+        closable: true,
+        allowFullScreen: false,
       },
       () => {}
     );
