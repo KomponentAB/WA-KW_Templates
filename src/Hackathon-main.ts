@@ -1,7 +1,7 @@
-/// <reference types="@workadventure/iframe-api-typings" />
+///<reference types="@workadventure/iframe-api-typings" />
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
-import { levelUp } from "@workadventure/quests";
+//import { levelUp } from "@workadventure/quests";
 
 WA.onInit()
   .then(() => {
@@ -19,32 +19,32 @@ WA.onInit()
 
 console.log("Script started successfully");
 
-WA.onInit().then(async () => {
-  const areas = await WA.mapEditor.area.list();
-  const scavengerAreas = areas.filter((area) =>
-    area.name.startsWith("SCAVENGER_"),
-  );
+// WA.onInit().then(async () => {
+//   const areas = await WA.mapEditor.area.list();
+//   const scavengerAreas = areas.filter((area) =>
+//     area.name.startsWith("SCAVENGER_"),
+//   );
 
-  for (const area of scavengerAreas) {
-    const [_, questName, objectName, exp] = area.name.split("_");
+//   for (const area of scavengerAreas) {
+//     const [_, questName, objectName, exp] = area.name.split("_");
 
-    WA.mapEditor.area.onEnter(area.name).subscribe(async () => {
-      const playerStateKey = `collected_${area.name}`;
-      const alreadyCollected = await WA.player.state[playerStateKey];
+//     WA.mapEditor.area.onEnter(area.name).subscribe(async () => {
+//       const playerStateKey = `collected_${area.name}`;
+//       const alreadyCollected = await WA.player.state[playerStateKey];
 
-      if (!alreadyCollected) {
-        const numericExp = Number(exp);
-        const message = `You leveled up in Quest "${questName}" by interacting with "${objectName}" and gained ${numericExp} EXP!`;
-        WA.chat.sendChatMessage(message, "system");
-        levelUp(questName, numericExp);
-        WA.player.state[playerStateKey] = "collected";
-      } else {
-        const message = `You have already collected the item "${objectName}" in Quest "${questName}".`;
-        WA.chat.sendChatMessage(message, "system");
-      }
-    });
-  }
-});
+//       if (!alreadyCollected) {
+//         const numericExp = Number(exp);
+//         const message = `You leveled up in Quest "${questName}" by interacting with "${objectName}" and gained ${numericExp} EXP!`;
+//         WA.chat.sendChatMessage(message, "system");
+//         levelUp(questName, numericExp);
+//         WA.player.state[playerStateKey] = "collected";
+//       } else {
+//         const message = `You have already collected the item "${objectName}" in Quest "${questName}".`;
+//         WA.chat.sendChatMessage(message, "system");
+//       }
+//     });
+//   }
+// });
 
 async function updateTitle(variableName: string) {
   var text: string = WA.state[variableName] as string;
