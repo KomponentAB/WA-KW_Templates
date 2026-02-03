@@ -6,133 +6,396 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
-    <meta name="title" content="WorkAdventure Starter Kit">
-    <title>WorkAdventure test map</title>
-    <link rel="icon" href="/stepFX/images/favicon.svg" type="image/svg+xml">
+    <meta name="title" content="Komponent.Works Templates for WorkAdventure">
+    <title>Komponent.Works - WorkAdventure Templates</title>
+    <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
     <script>
-        window.onload = function () {
+        const availableMaps = [
+            'Hackathon',
+            'sailboat',
+            'smallOffice_medieval',
+            'smallOffice_nature',
+            'smallOffice_scifi',
+            'smallOffice',
+            'tavern_map',
+            'winterevent-map',
+            'workhub'
+        ];
+
+        window.onload = async function () {
             const host = window.location.host;
             let path = window.location.pathname;
             if (path.endsWith('index.html')) {
-                path = path.substr(path, path.length - 'index.html'.length);
+                path = path.substr(0, path.length - 'index.html'.length);
             }
+
+            populateDropdown(availableMaps);
+
+            // Set default map
+            selectMap('maps', host, path);
+        };
+
+        function populateDropdown(maps) {
+            const dropdown = document.getElementById('mapSelector');
+            dropdown.innerHTML = '';
+            maps.forEach(map => {
+                const option = document.createElement('option');
+                option.value = map;
+                option.text = map.replace('-', ' ').toUpperCase();
+                dropdown.appendChild(option);
+            });
+        }
+
+        function selectMap(mapName, host = window.location.host, path = window.location.pathname) {
+            if (path.endsWith('index.html')) {
+                path = path.substr(0, path.length - 'index.html'.length);
+            }
+
             const instanceId = Math.random().toString(36).substring(2, 15);
-            const url = `https://play.workadventu.re/_/${instanceId}/${host}${path}map.tmj`;
+            const mapFile = mapName + '.tmj';
+            const url = `https://play.workadventu.re/_/${instanceId}/${host}${path}${mapFile}`;
+
             document.getElementById('testMapURL').href = url;
             document.getElementById('testMapBtnURL').href = url;
             document.getElementById('testMapURL').innerText = url;
 
-            const tmjURL = window.location.protocol + '//' + window.location.host + path + 'map.tmj';
+            const tmjURL = window.location.protocol + '//' + window.location.host + path + mapFile;
             document.getElementById('tmjURL').innerText = tmjURL;
 
-            const gettingStartedLink = 'https://workadventu.re/getting-started?name=Map&mapUrl=' + tmjURL;
-            document.getElementById('gettingStartedLink').href = gettingStartedLink;
+            const gettingStartedLink = 'https://workadventu.re/getting-started?name=' + mapName + '&mapUrl=' + tmjURL;
+            const gettingStartedElement = document.getElementById('gettingStartedLink');
+            if (gettingStartedElement) {
+                gettingStartedElement.href = gettingStartedLink;
+            }
 
-        };
+            // Update preview image
+            const imgPath = '/' + mapName + '.png';
+            document.getElementById('mapPreview').src = imgPath;
+            document.getElementById('mapPreview').alt = mapName + ' preview';
+        }
+
+        function onMapChange(event) {
+            selectMap(event.target.value);
+        }
     </script>
     <style>
-        html, body {
-        height: 100%;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        html,
         body {
-        display: flex;
-        flex-direction: column;
-        }
-        .content {
-        flex: 1 0 auto;
-        }
-        footer {
-        flex-shrink: 0;
+            height: 100%;
         }
 
         body {
-            font-family: Roboto Condensed,Arial;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
         }
-        
+
+        .content {
+            flex: 1 0 auto;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        footer {
+            flex-shrink: 0;
+        }
+
         header {
-            margin: 30px;
+            margin: 40px 0 50px 0;
+            text-align: center;
         }
 
         header .logo {
             display: block;
             position: relative;
+            margin-bottom: 30px;
         }
 
         header .logo img {
             display: block;
-            width: 500px;
+            width: 100%;
+            max-width: 450px;
             margin: auto;
-            text-align: center;
+            filter: drop-shadow(0 10px 30px rgba(59, 130, 246, 0.2));
+            transition: transform 0.3s ease;
         }
 
-        h1,
+        header .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
         h2 {
-            font-weight: bold;
-            font-size: 1.3rem;
+            font-weight: 600;
+            font-size: 1.75rem;
+            color: #93c5fd;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            border-radius: 2px;
+        }
+
+        p {
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        header>p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            font-weight: 300;
         }
 
         section {
-            margin-top: 3rem;
+            margin-top: 50px;
+            padding: 40px 30px;
+            background: rgba(30, 58, 95, 0.5);
+            border-radius: 16px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        section:hover {
+            border-color: rgba(96, 165, 250, 0.5);
+            background: rgba(30, 58, 95, 0.7);
+            transform: translateY(-2px);
+        }
+
+        a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
         }
 
         .tips {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             font-style: italic;
+            color: #94a3b8;
+            margin-top: 15px;
         }
 
-        .socials img {
-            width: 30px;
-            height: 30px;
+        .map-selector {
+            margin: 25px 0;
+            padding: 14px 18px;
+            font-size: 1.05rem;
+            border: 2px solid rgba(96, 165, 250, 0.4);
+            border-radius: 10px;
+            background-color: rgba(15, 23, 42, 0.8);
+            color: #e2e8f0;
+            cursor: pointer;
+            min-width: 280px;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
-        .socials > a {
-            display: inline-block;
-            margin: 20px 5px;
+        .map-selector:hover {
+            border-color: #60a5fa;
+            background-color: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
+        }
+
+        .map-selector:focus {
+            outline: none;
+            border-color: #93c5fd;
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
+        }
+
+        .map {
+            width: 100%;
+            max-width: 400px;
+            margin: 30px 0;
+            border-radius: 12px;
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .map:hover {
+            border-color: rgba(96, 165, 250, 0.6);
+            box-shadow: 0 20px 50px rgba(96, 165, 250, 0.2);
+            transform: scale(1.02);
+        }
+
+        .url-box {
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            border-radius: 10px;
+            padding: 15px 20px;
+            background-color: rgba(15, 23, 42, 0.8);
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .url-box:hover {
+            border-color: #60a5fa;
+            background-color: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 0 15px rgba(96, 165, 250, 0.2);
+        }
+
+        .url {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #93c5fd;
+            word-break: break-all;
+            letter-spacing: 0.3px;
         }
 
         a.button {
             display: inline-block;
-            padding: 13px 20px 12px;
-            background-color: rgba(65, 86, 246, 0.9);
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             color: white;
-            border-radius: 8px;
-            font-weight: bold;
+            border-radius: 10px;
+            font-weight: 600;
             text-transform: uppercase;
             text-decoration: none;
             text-align: center;
-            width: auto;
-            position: relative;
-            font-size: 1.3em;
+            border: 2px solid transparent;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            margin-top: 20px;
         }
 
         a.button:hover {
-            background-color: rgb(65, 86, 246);
-            cursor: pointer;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
         }
 
-        .map {
-            width: 30%;
-            margin-bottom: 3%;
-            min-width: 200px;
+        a.button:active {
+            transform: translateY(0);
         }
 
-        .url-box {
-            border: 1px solid rgb(65, 86, 246);
-            border-radius: 3px;
-            padding: 3px;
-            background-color: rgba(65, 86, 246, 0.1);
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
         }
-        .url {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
+
+        .socials img {
+            width: 45px;
+            height: 45px;
+            filter: brightness(0.9) drop-shadow(0 5px 15px rgba(96, 165, 250, 0.2));
+            transition: all 0.3s ease;
+        }
+
+        .socials a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(96, 165, 250, 0.1);
+            border-radius: 12px;
+            border: 2px solid rgba(96, 165, 250, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .socials a:hover {
+            background: rgba(96, 165, 250, 0.2);
+            border-color: #60a5fa;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(96, 165, 250, 0.3);
+        }
+
+        .socials a:hover img {
+            filter: brightness(1.2) drop-shadow(0 5px 20px rgba(96, 165, 250, 0.4));
         }
 
         footer {
             display: block;
-            padding: 2rem 5vw;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(96, 165, 250, 0.2);
+            margin-top: 60px;
+            color: #94a3b8;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #60a5fa;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: #93c5fd;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            section {
+                padding: 30px 20px;
+                margin-top: 30px;
+            }
+
+            .map-selector {
+                min-width: 100%;
+            }
+
+            .map {
+                max-width: 100%;
+            }
+
+            header .logo img {
+                max-width: 300px;
+            }
+
+            .content {
+                padding: 0 15px;
+            }
         }
     </style>
 </head>
@@ -141,18 +404,26 @@
     <div class="content">
         <header>
             <div class="logo">
-                <a href="https://workadventu.re/" target="_blank" title="Workadventure">
-                    <img src="/stepFX/images/logo.svg" alt="WorkAdventure logo" />
+                <a href="https://komponent.works/" target="_blank" title="Komponent.Works">
+                    <img src="./images/komponent-logo.svg" alt="Komponent.Works logo" />
                 </a>
             </div>
+            <h1>WorkAdventure Templates by Komponent.Works</h1>
+            <p>Designed and produced by <a href="https://Kilians.website" target="_blank"
+                    title="Kilian Schmelmer">Kilian Schmelmer</a></p>
         </header>
         <main>
             <section>
+                <h2>Select a Map</h2>
+                <select id="mapSelector" class="map-selector" onchange="onMapChange(event)"></select>
+            </section>
+
+            <section>
                 <h2>Test my map</h2>
+                <img id="mapPreview" src="./assets/maps-15dd392a.png" alt="Map thumbnail" class="map">
                 <p><a id="testMapURL" href="#" class="url"></a></p>
-                <p class="tips">(In order to test another map, locate "map.tmj" at the end of the URL and replace it by another file name)</p>
-                <img src="/map.png" alt="Map thumbnail" class="map">
-                <p><a id="testMapBtnURL" href="#" class="button">Test my map</a></p>
+                <p class="tips">(In order to test another map, select it from the dropdown above)</p>
+                <p><a id="testMapBtnURL" href="#" class="button">Test Map</a></p>
             </section>
 
             <section>
@@ -167,36 +438,35 @@
                 <div>
                     <div class="socials">
                         <a href="https://discord.gg/G6Xh9ZM9aR" target="_blank" title="discord">
-                            <img src="/stepFX/images/discord.png" alt="discord">
+                            <img src="./images/discord.png" alt="discord">
                         </a>
                         <a href="https://github.com/thecodingmachine/workadventure" target="_blank" title="github">
-                            <img src="/stepFX/images/github.png" alt="github">
+                            <img src="./images/github.png" alt="github">
                         </a>
-                        <a href="https://www.youtube.com/channel/UCXJ9igV-kb9gw1ftR33y5tA" target="_blank" title="youtube">
-                            <img src="/stepFX/images/youtube.png" alt="youtube">
-                        </a>
-                        <a href="https://twitter.com/Workadventure_" target="_blank" title="twitter">
-                            <img src="/stepFX/images/twitter.png" alt="twitter">
-                        </a>
-                        <a href="https://www.instagram.com/workadventure_" target="_blank" title="instagram">
-                            <img src="/stepFX/images/instagram.png" alt="instagram">
-                        </a>
-                        <a href="https://www.linkedin.com/company/workadventu-re" target="_blank" title="linkedin">
-                            <img src="/stepFX/images/linkedin.png" alt="linkedin">
-                        </a>
-                    </div>
-
-                    <div>
-                        <a href="https://www.youtube.com/watch?v=lu1IZgBJJD4&list=PL7jmrMKZfjCnz36FvezxJ-Tshuh3Zz-nc&ab_channel=WorkAdventure"
-                        target="_blank">Watch tutorials</a>
-                        <a href="https://discord.gg/G6Xh9ZM9aR" target="_blank">Talk to the community</a>
                     </div>
                 </div>
+            </section>
+
+            <section>
+                <h2>Acknowledgments</h2>
+                <p>These templates are built on <a href="https://workadventu.re/" target="_blank"
+                        title="WorkAdventure">WorkAdventure</a>, an amazing open-source platform created by <a
+                        href="https://github.com/thecodingmachine/workadventure" target="_blank"
+                        title="WorkAdventure GitHub">TheCodingMachine</a>. We extend our heartfelt thanks to their
+                    fantastic team for their exceptional support and dedication to the community.</p>
+                <p>Most of these maps were originally created for the <strong>CoCreation.World</strong> community
+                    project, an ambitious collaborative initiative that brought together creators and developers. While
+                    production activities were placed on hold in 2025, this project represents a testament to the
+                    potential of collective creativity within the WorkAdventure ecosystem.</p>
+                <p>Special thanks to <a href="https://withjulio.com/" target="_blank" title="withJulio">withJulio</a>
+                    for their exceptional contributions in designing stunning assets and creating immersive worlds that
+                    brought these templates to life.</p>
             </section>
         </main>
     </div>
     <footer>
-        <a href="https://workadventu.re/" target="_blank" title="workadventu.re">&copy; WorkAdventure</a>
+        <p><a href="https://komponent.works/" target="_blank" title="komponent.works">&copy; Komponent.Works</a> | Built
+            with <a href="https://workadventu.re/" target="_blank" title="WorkAdventure">WorkAdventure</a></p>
     </footer>
 </body>
 
