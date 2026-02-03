@@ -4015,17 +4015,6 @@
          "name":"floorLayer",
          "objects":[
                 {
-                 "height":128,
-                 "id":1,
-                 "name":"followUsPopup",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":256,
-                 "x":566.666666666667,
-                 "y":1805.33333333333
-                }, 
-                {
                  "height":55.7152005740263,
                  "id":2,
                  "name":"needHelpPopup",
@@ -4302,7 +4291,7 @@
                  "y":1775.04318480154
                 }, 
                 {
-                 "height":276,
+                 "height":113,
                  "id":45,
                  "name":"jukeboxSound",
                  "properties":[
@@ -4314,14 +4303,14 @@
                  "rotation":0,
                  "type":"area",
                  "visible":true,
-                 "width":492,
-                 "x":640,
-                 "y":707.333333333333
+                 "width":120,
+                 "x":1102,
+                 "y":385.333333333333
                 }, 
                 {
-                 "height":419,
+                 "height":86.2834136593394,
                  "id":46,
-                 "name":"Auditorium",
+                 "name":"Auditorium(old)",
                  "properties":[
                         {
                          "name":"ai-zone",
@@ -4356,9 +4345,9 @@
                  "rotation":0,
                  "type":"area",
                  "visible":true,
-                 "width":522.666666666667,
-                 "x":620.588407102067,
-                 "y":1389.84031779293
+                 "width":80.7751151712598,
+                 "x":1543.44554995921,
+                 "y":2439.69976127645
                 }, 
                 {
                  "height":514.414,
@@ -4379,11 +4368,11 @@
                  "type":"area",
                  "visible":true,
                  "width":646.952,
-                 "x":553.586939393939,
-                 "y":709.701712121212
+                 "x":554.586939393939,
+                 "y":701.701712121212
                 }, 
                 {
-                 "height":99.080666666667,
+                 "height":153.040967302628,
                  "id":48,
                  "name":"Spawn",
                  "properties":[
@@ -4395,14 +4384,14 @@
                         {
                          "name":"description",
                          "type":"string",
-                         "value":"spawn area where users arrive"
+                         "value":"Entrance area where users arrive"
                         }],
                  "rotation":0,
                  "type":"area",
                  "visible":true,
-                 "width":174.285333333333,
-                 "x":773.342303030303,
-                 "y":2214.85398484849
+                 "width":210.901251622021,
+                 "x":765.633688653737,
+                 "y":2151.25791624182
                 }, 
                 {
                  "height":0,
@@ -4481,8 +4470,8 @@
                  "type":"area",
                  "visible":true,
                  "width":61,
-                 "x":852,
-                 "y":837
+                 "x":1027,
+                 "y":398
                 }, 
                 {
                  "height":61.0306862876332,
@@ -4508,8 +4497,8 @@
                  "type":"website",
                  "visible":true,
                  "width":101.165545451329,
-                 "x":829.543905547402,
-                 "y":1328.88176438563
+                 "x":1600.99637316391,
+                 "y":2327.19502630772
                 }, 
                 {
                  "height":122.5,
@@ -4723,6 +4712,182 @@
                  "width":0,
                  "x":307.774227902024,
                  "y":2411.07561235357
+                }, 
+                {
+                 "height":248.414,
+                 "id":160,
+                 "name":"Red Room",
+                 "properties":[
+                        {
+                         "name":"ai-zone",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"description",
+                         "type":"string",
+                         "value":"the red colored room for teams or breakout sessions"
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":304.952,
+                 "x":110.524,
+                 "y":706.793
+                }, 
+                {
+                 "height":248.414,
+                 "id":161,
+                 "name":"Blue Room",
+                 "properties":[
+                        {
+                         "name":"ai-zone",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"description",
+                         "type":"string",
+                         "value":"the blue colored room for teams or breakout sessions"
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":304.952,
+                 "x":101.524,
+                 "y":1151.793
+                }, 
+                {
+                 "height":248.414,
+                 "id":162,
+                 "name":"Purple Room",
+                 "properties":[
+                        {
+                         "name":"ai-zone",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"description",
+                         "type":"string",
+                         "value":"the purple colored room for teams or breakout sessions"
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":304.952,
+                 "x":103.524,
+                 "y":1591.793
+                }, 
+                {
+                 "height":248.414,
+                 "id":163,
+                 "name":"Orange Room",
+                 "properties":[
+                        {
+                         "name":"ai-zone",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"description",
+                         "type":"string",
+                         "value":"the orange colored room for teams or breakout sessions"
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":304.952,
+                 "x":1351.524,
+                 "y":1593.793
+                }, 
+                {
+                 "height":248.414,
+                 "id":164,
+                 "name":"Green Room",
+                 "properties":[
+                        {
+                         "name":"ai-zone",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"description",
+                         "type":"string",
+                         "value":"the green colored room for teams or breakout sessions"
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":304.952,
+                 "x":1355.524,
+                 "y":705.793
+                }, 
+                {
+                 "height":248.414,
+                 "id":165,
+                 "name":"Yellow Room",
+                 "properties":[
+                        {
+                         "name":"ai-zone",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"description",
+                         "type":"string",
+                         "value":"the yellow colored room for teams or breakout sessions"
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":304.952,
+                 "x":1359.524,
+                 "y":1137.793
+                }, 
+                {
+                 "height":508.008639616613,
+                 "id":166,
+                 "name":"Auditorium",
+                 "properties":[
+                        {
+                         "name":"ai-zone",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"description",
+                         "type":"string",
+                         "value":"Central Stage for presentations"
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":596.217059531416,
+                 "x":586.01330492556,
+                 "y":1371.02659366455
+                }, 
+                {
+                 "height":326.451592481504,
+                 "id":167,
+                 "name":"Winter Garden",
+                 "properties":[
+                        {
+                         "name":"ai-zone",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"description",
+                         "type":"string",
+                         "value":"Room with several tables and chairs, usefull for all kinds of different activties. Such as coworking or even speed-networking"
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":786.92400559888,
+                 "x":76.4440159968008,
+                 "y":320.677423115377
                 }],
          "opacity":0.78,
          "type":"objectgroup",
@@ -4928,7 +5093,7 @@
                                  "y":1578.54665425937
                                 }, 
                                 {
-                                 "height":254.414,
+                                 "height":51.1029340691257,
                                  "id":82,
                                  "name":"purpleroom",
                                  "properties":[
@@ -4960,9 +5125,9 @@
                                  "rotation":0,
                                  "type":"area",
                                  "visible":true,
-                                 "width":181.754,
-                                 "x":106.323060213759,
-                                 "y":1612.21795860304
+                                 "width":56.862916642463,
+                                 "x":22.0941900423968,
+                                 "y":1830.05124352898
                                 }],
                          "opacity":1,
                          "type":"objectgroup",
@@ -5162,7 +5327,7 @@
                                  "y":1130.61337115645
                                 }, 
                                 {
-                                 "height":254.414,
+                                 "height":77.2429282602382,
                                  "id":91,
                                  "name":"bluerom",
                                  "properties":[
@@ -5194,9 +5359,9 @@
                                  "rotation":0,
                                  "type":"area",
                                  "visible":true,
-                                 "width":181.754,
-                                 "x":105.994645661529,
-                                 "y":1164.28337115645
+                                 "width":68.4806918385129,
+                                 "x":-1.46977490193308,
+                                 "y":1382.11665608239
                                 }],
                          "opacity":1,
                          "type":"objectgroup",
@@ -5396,7 +5561,7 @@
                                  "y":682.573383333333
                                 }, 
                                 {
-                                 "height":254.414,
+                                 "height":51.7473333333334,
                                  "id":99,
                                  "name":"redroom",
                                  "properties":[
@@ -5428,9 +5593,9 @@
                                  "rotation":0,
                                  "type":"area",
                                  "visible":true,
-                                 "width":181.754,
-                                 "x":105.94935,
-                                 "y":716.243383333333
+                                 "width":51.0873333333333,
+                                 "x":17.94935,
+                                 "y":969.576716666666
                                 }],
                          "opacity":1,
                          "type":"objectgroup",
@@ -5523,7 +5688,7 @@
                                  "type":"website",
                                  "visible":true,
                                  "width":78,
-                                 "x":1289.32466666667,
+                                 "x":1289.199430283,
                                  "y":867.999883333333
                                 }, 
                                 {
@@ -5630,7 +5795,7 @@
                                  "y":682.489883333333
                                 }, 
                                 {
-                                 "height":254.414,
+                                 "height":34.414,
                                  "id":115,
                                  "name":"greenroom",
                                  "properties":[
@@ -5662,9 +5827,9 @@
                                  "rotation":0,
                                  "type":"area",
                                  "visible":true,
-                                 "width":181.754,
-                                 "x":1472.54466666667,
-                                 "y":716.159883333333
+                                 "width":47.0873333333332,
+                                 "x":1677.878,
+                                 "y":1010.82655
                                 }],
                          "opacity":1,
                          "type":"objectgroup",
@@ -5864,7 +6029,7 @@
                                  "y":1130.71423937351
                                 }, 
                                 {
-                                 "height":254.414,
+                                 "height":34.5396424900057,
                                  "id":123,
                                  "name":"yellowroom",
                                  "properties":[
@@ -5896,9 +6061,9 @@
                                  "rotation":0,
                                  "type":"area",
                                  "visible":true,
-                                 "width":181.754,
-                                 "x":1472.45923049733,
-                                 "y":1164.38423937351
+                                 "width":30.411909765848,
+                                 "x":1672.34501005187,
+                                 "y":1445.17616779536
                                 }],
                          "opacity":1,
                          "type":"objectgroup",
@@ -6098,7 +6263,7 @@
                                  "y":1578.56163686032
                                 }, 
                                 {
-                                 "height":254.414,
+                                 "height":54.0073778681381,
                                  "id":131,
                                  "name":"orangeroom",
                                  "properties":[
@@ -6130,9 +6295,9 @@
                                  "rotation":0,
                                  "type":"area",
                                  "visible":true,
-                                 "width":181.754,
-                                 "x":1472.45592465676,
-                                 "y":1612.23163686032
+                                 "width":48.1495852454255,
+                                 "x":1667.0536591906,
+                                 "y":1879.44046636947
                                 }],
                          "opacity":1,
                          "type":"objectgroup",
@@ -6182,8 +6347,8 @@
                          "type":"variable",
                          "visible":true,
                          "width":0,
-                         "x":1001.8430979803,
-                         "y":1336.56067434485
+                         "x":1662.85678077082,
+                         "y":2250.0314779679
                         }, 
                         {
                          "height":0,
@@ -7179,7 +7344,7 @@
          "y":0
         }],
  "nextlayerid":140,
- "nextobjectid":158,
+ "nextobjectid":168,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -7218,7 +7383,7 @@
          "value":true
         }],
  "renderorder":"right-down",
- "tiledversion":"1.11.0",
+ "tiledversion":"1.11.2",
  "tileheight":32,
  "tilesets":[
         {
