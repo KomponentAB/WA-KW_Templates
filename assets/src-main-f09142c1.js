@@ -1,0 +1,2 @@
+import{b as o}from"./init-ecf2287f.js";WA.onInit().then(()=>{console.log("Scripting API ready"),console.log("Player tags: ",WA.player.tags),o().then(()=>{console.log("Scripting API Extra ready")}).catch(e=>console.error(e))}).catch(e=>console.error(e));console.log("plain main script loaded");WA.onInit().then(()=>{WA.state.onVariableChange("infoText").subscribe(()=>{const e=WA.state.infoText;e!=="empty"&&WA.chat.sendChatMessage(e,"Workadventure-Helper")})}).catch(e=>console.error(e));
+//# sourceMappingURL=src-main-f09142c1.js.map
