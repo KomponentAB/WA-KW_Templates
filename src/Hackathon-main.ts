@@ -20,26 +20,63 @@ WA.onInit()
 console.log("Script started successfully");
 
 WA.onInit().then(async () => {
+  console.log("Initializing scavenger hunt logic");
   const areas = await WA.mapEditor.area.list();
   const scavengerAreas = areas.filter((area) =>
     area.name.startsWith("SCAVENGER_"),
   );
+  console.log("Found scavenger areas:", scavengerAreas);
 
   for (const area of scavengerAreas) {
     const [_, questName, objectName, exp] = area.name.split("_");
+    console.log(`Setting up scavenger area: ${area.name}`, {
+      questName,
+      objectName,
+      exp,
+    });
 
     WA.mapEditor.area.onEnter(area.name).subscribe(async () => {
+      console.log(`Player entered scavenger area: ${area.name}`);
       const playerStateKey = `collected_${area.name}`;
       const alreadyCollected = await WA.player.state[playerStateKey];
+      console.log(
+        `Checked collection status for ${playerStateKey}: ${alreadyCollected}`,
+      );
+
+      const translations = {
+        "en-US": `You leveled up in Quest "${questName}" by interacting with "${objectName}" and gained ${exp} EXP!`,
+        "de-DE": `Du hast in der Quest "${questName}" aufgelevelt, indem du mit "${objectName}" interagiert hast, und ${exp} EXP gewonnen!`,
+        "fr-FR": `Vous avez monté de niveau dans la quête "${questName}" en interagissant avec "${objectName}" et avez gagné ${exp} EXP!`,
+        "it-IT": `Hai salito di livello nella Quest "${questName}" interagendo con "${objectName}" e hai guadagnato ${exp} EXP!`,
+        "es-ES": `¡Subiste de nivel en la misión "${questName}" al interactuar con "${objectName}" y ganaste ${exp} EXP!`,
+        "pt-BR": `Você subiu de nível na Quest "${questName}" ao interagir com "${objectName}" e ganhou ${exp} EXP!`,
+      };
+
+      const alreadyCollectedTranslations = {
+        "en-US": `You have already collected the item "${objectName}" in Quest "${questName}".`,
+        "de-DE": `Du hast den Gegenstand "${objectName}" in der Quest "${questName}" bereits eingesammelt.`,
+        "fr-FR": `Vous avez déjà collecté l'objet "${objectName}" dans la quête "${questName}".`,
+        "it-IT": `Hai già raccolto l'oggetto "${objectName}" nella Quest "${questName}".`,
+        "es-ES": `Ya has recolectado el objeto "${objectName}" en la misión "${questName}".`,
+        "pt-BR": `Você já coletou o item "${objectName}" na Quest "${questName}".`,
+      };
+
+      const userLang = WA.player.language;
 
       if (!alreadyCollected) {
-        const numericExp = Number(exp);
-        const message = `You leveled up in Quest "${questName}" by interacting with "${objectName}" and gained ${numericExp} EXP!`;
+        const message =
+          translations[userLang as keyof typeof translations] ||
+          translations["en-US"];
+        console.log(`Sending level up message: ${message}`);
         WA.chat.sendChatMessage(message, "system");
-        levelUp(questName, numericExp);
+        levelUp(questName, Number(exp));
         WA.player.state[playerStateKey] = "collected";
       } else {
-        const message = `You have already collected the item "${objectName}" in Quest "${questName}".`;
+        const message =
+          alreadyCollectedTranslations[
+            userLang as keyof typeof alreadyCollectedTranslations
+          ] || alreadyCollectedTranslations["en-US"];
+        console.log(`Item already collected: ${message}`);
         WA.chat.sendChatMessage(message, "system");
       }
     });
@@ -47,6 +84,7 @@ WA.onInit().then(async () => {
 });
 
 async function updateTitle(variableName: string) {
+  console.log(`updateTitle called with variableName: ${variableName}`);
   var text: string = WA.state[variableName] as string;
   console.log(`Text for ${variableName} is configured as ` + text);
   var color = variableName.split("-")[0];
@@ -61,6 +99,7 @@ async function updateTitle(variableName: string) {
 }
 
 WA.onInit().then(() => {
+  console.log("Initializing title updates");
   updateTitle("purple-text");
   updateTitle("blue-text");
   updateTitle("red-text");
@@ -110,10 +149,13 @@ const groupCoordinates = {
 };
 
 function addGroupButton(groupName: keyof typeof groupIcons) {
+  console.log(`addGroupButton called with groupName: ${groupName}`);
   setTimeout(() => {
     WA.onInit().then(() => {
+      console.log(`Setting up group button for ${groupName}`);
       const codeVariable = `code${groupName}`;
       const roomCode = WA.state[codeVariable];
+      console.log(`Room code for ${groupName}: ${roomCode}`);
       const chatTranslations = {
         "en-US": `The code to the ${groupName}-Room is: ${roomCode}.`,
         "fr-FR": `Le code de la salle ${groupName} est : ${roomCode}.`,
@@ -128,6 +170,7 @@ function addGroupButton(groupName: keyof typeof groupIcons) {
       const chatMessage =
         chatTranslations[userLang as keyof typeof chatTranslations] ||
         chatTranslations["en-US"];
+      console.log(`Sending chat message in language: ${userLang}`);
       WA.chat.sendChatMessage(chatMessage, "system");
     });
   }, 2000);
@@ -135,14 +178,18 @@ function addGroupButton(groupName: keyof typeof groupIcons) {
   WA.ui.actionBar.addButton({
     id: "roomNavigate-btn",
     // type: "action",
-    imageSrc: groupIcons[groupName],
+    // imageSrc: groupIcons[groupName],
+    label: `[${groupName} Room]`,
     toolTip: "Go to your Breakout-Room.",
     callback: () => {
+      console.log(`Room navigation button clicked for ${groupName}`);
       removeGroupButton();
       const coordinates = groupCoordinates[groupName];
+      console.log(`Moving to coordinates:`, coordinates);
 
       WA.player.moveTo(coordinates.x, coordinates.y, 10).then((result) => {
         if (!result.cancelled) {
+          console.log(`Successfully moved to ${groupName}`);
           const codeVariable = `code${groupName}`;
           const roomCode = WA.state[codeVariable];
 
@@ -154,6 +201,8 @@ function addGroupButton(groupName: keyof typeof groupIcons) {
             closable: true,
             timeToClose: 100000,
           });
+        } else {
+          console.log(`Movement cancelled for ${groupName}`);
         }
       });
     },
@@ -161,28 +210,36 @@ function addGroupButton(groupName: keyof typeof groupIcons) {
 }
 
 function removeGroupButton() {
+  console.log("removeGroupButton called");
   WA.onInit().then(() => {
+    console.log("Removing room navigation button");
     WA.ui.actionBar.removeButton("roomNavigate-btn");
   });
 }
 
 WA.onInit().then(() => {
+  console.log("Setting up ping/pong event listener");
   WA.event.on("ping").subscribe((value) => {
+    console.log("Received ping event:", value);
     if (value.data === "start") {
       const playerId = WA.player.uuid;
+      console.log(`Ping start - Player ID: ${playerId}`);
       if (playerId) {
         WA.event.broadcast("pong", playerId);
       } else {
         console.error("Player UUID is undefined");
       }
     } else if (value.data === "stop") {
+      console.log("Ping stop - removing outline color");
       WA.player.removeOutlineColor();
     }
   });
 });
 
 WA.onInit().then(() => {
+  console.log("Setting up player-specific event listener");
   const playerId = WA.player.uuid;
+  console.log(`Player UUID: ${playerId}`);
   if (playerId) {
     WA.event.on(playerId).subscribe((value) => {
       console.log(`Received event for player UUID ${playerId}:`, value);
@@ -195,6 +252,7 @@ WA.onInit().then(() => {
 });
 
 function handleGroupAssignment(groupName: string) {
+  console.log(`handleGroupAssignment called with groupName: ${groupName}`);
   WA.onInit().then(() => {
     const groupColors: { [key: string]: { r: number; g: number; b: number } } =
       {
@@ -207,8 +265,10 @@ function handleGroupAssignment(groupName: string) {
       };
 
     const color = groupColors[groupName];
+    console.log(`Color for ${groupName}:`, color);
     if (color) {
       WA.player.setOutlineColor(color.r, color.g, color.b);
+      console.log(`Set outline color for ${groupName}`);
 
       const roomColorIcon = {
         Yellow: "🟨",
@@ -224,6 +284,7 @@ function handleGroupAssignment(groupName: string) {
         WA.state[`${groupName}-text`] ||
         `${groupName.charAt(0).toUpperCase() + groupName.slice(1)} Room`
       }`;
+      console.log(`Room name: ${roomName}`);
 
       const translations = {
         "en-US": `You have been assigned to the ${roomName}.`,
@@ -240,6 +301,7 @@ function handleGroupAssignment(groupName: string) {
       const bannerText =
         translations[userLang as keyof typeof translations] ||
         translations["en-US"];
+      console.log(`Opening banner in language: ${userLang}`);
 
       WA.ui.banner.openBanner({
         id: "group-assignment",
@@ -265,6 +327,7 @@ function handleGroupAssignment(groupName: string) {
       const chatMessage =
         chatTranslations[userLang as keyof typeof chatTranslations] ||
         chatTranslations["en-US"];
+      console.log(`Sending chat message for group assignment`);
       WA.chat.sendChatMessage(chatMessage, "system");
     } else {
       console.warn("Unknown group name:", groupName);
@@ -273,16 +336,20 @@ function handleGroupAssignment(groupName: string) {
 }
 
 WA.onInit().then(() => {
+  console.log("Initializing grouping button logic");
   function addStartGroupingButton() {
-    const svgIcon1 =
-      'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="%23ff0019" d="M132.7 212.3 36.2 137.8A63.4 63.4 0 0 0 32 160a63.8 63.8 0 0 0 100.7 52.3zm40.4 62.3A63.8 63.8 0 0 0 128 256H64A64.1 64.1 0 0 0 0 320v32a32 32 0 0 0 32 32H97.9A146.6 146.6 0 0 1 173.1 274.6zM544 224a64 64 0 1 0 -64-64A64.1 64.1 0 0 0 544 224zM500.6 355.1a114.2 114.2 0 0 0 -84.5-65.3L361 247.2c41.5-16.3 71-55.9 71-103.2A111.9 111.9 0 0 0 320 32c-57.1 0-103.7 42.8-110.6 98.1L45.5 3.4A16 16 0 0 0 23 6.2L3.4 31.5A16 16 0 0 0 6.2 53.9L594.5 508.6A16 16 0 0 0 617 505.8l19.6-25.3a16 16 0 0 0 -2.8-22.5zM128 403.2V432a48 48 0 0 0 48 48H464a47.5 47.5 0 0 0 12.6-1.9L232 289.1C173.7 294.8 128 343.4 128 403.2zM576 256H512a63.8 63.8 0 0 0 -45.1 18.6A146.3 146.3 0 0 1 542 384h66a32 32 0 0 0 32-32V320A64.1 64.1 0 0 0 576 256z"/></svg>';
+    console.log("addStartGroupingButton called");
+    //const svgIcon1 =
+    // 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="%23ff0019" d="M132.7 212.3 36.2 137.8A63.4 63.4 0 0 0 32 160a63.8 63.8 0 0 0 100.7 52.3zm40.4 62.3A63.8 63.8 0 0 0 128 256H64A64.1 64.1 0 0 0 0 320v32a32 32 0 0 0 32 32H97.9A146.6 146.6 0 0 1 173.1 274.6zM544 224a64 64 0 1 0 -64-64A64.1 64.1 0 0 0 544 224zM500.6 355.1a114.2 114.2 0 0 0 -84.5-65.3L361 247.2c41.5-16.3 71-55.9 71-103.2A111.9 111.9 0 0 0 320 32c-57.1 0-103.7 42.8-110.6 98.1L45.5 3.4A16 16 0 0 0 23 6.2L3.4 31.5A16 16 0 0 0 6.2 53.9L594.5 508.6A16 16 0 0 0 617 505.8l19.6-25.3a16 16 0 0 0 -2.8-22.5zM128 403.2V432a48 48 0 0 0 48 48H464a47.5 47.5 0 0 0 12.6-1.9L232 289.1C173.7 294.8 128 343.4 128 403.2zM576 256H512a63.8 63.8 0 0 0 -45.1 18.6A146.3 146.3 0 0 1 542 384h66a32 32 0 0 0 32-32V320A64.1 64.1 0 0 0 576 256z"/></svg>';
     WA.ui.actionBar.removeButton("startGrouping-btn");
     WA.ui.actionBar.addButton({
       id: "endGrouping-btn",
       // type: "action",
-      imageSrc: svgIcon1,
+      label: "end group",
+      // imageSrc: svgIcon1,
       toolTip: "End Breakout Grouping",
       callback: () => {
+        console.log("End grouping button clicked");
         WA.state.grouping = 0;
         WA.ui.actionBar.removeButton("endGrouping-btn");
         addEndGroupingButton();
@@ -292,15 +359,18 @@ WA.onInit().then(() => {
   }
 
   function addEndGroupingButton() {
-    const svgIcon2 =
-      'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="%2363E6BE" d="M192 256c61.9 0 112-50.1 112-112S253.9 32 192 32 80 82.1 80 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C51.6 288 0 339.6 0 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zM480 256c53 0 96-43 96-96s-43-96-96-96-96 43-96 96 43 96 96 96zm48 32h-3.8c-13.9 4.8-28.6 8-44.2 8s-30.3-3.2-44.2-8H432c-20.4 0-39.2 5.9-55.7 15.4 24.4 26.3 39.7 61.2 39.7 99.8v38.4c0 2.2-.5 4.3-.6 6.4H592c26.5 0 48-21.5 48-48 0-61.9-50.1-112-112-112z"/></svg>';
+    console.log("addEndGroupingButton called");
+    // const svgIcon2 =
+    //   'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="%2363E6BE" d="M192 256c61.9 0 112-50.1 112-112S253.9 32 192 32 80 82.1 80 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C51.6 288 0 339.6 0 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zM480 256c53 0 96-43 96-96s-43-96-96-96-96 43-96 96 43 96 96 96zm48 32h-3.8c-13.9 4.8-28.6 8-44.2 8s-30.3-3.2-44.2-8H432c-20.4 0-39.2 5.9-55.7 15.4 24.4 26.3 39.7 61.2 39.7 99.8v38.4c0 2.2-.5 4.3-.6 6.4H592c26.5 0 48-21.5 48-48 0-61.9-50.1-112-112-112z"/></svg>';
     WA.ui.actionBar.removeButton("endGrouping-btn");
     WA.ui.actionBar.addButton({
       id: "startGrouping-btn",
+      label: "start group",
       // type: "action",
-      imageSrc: svgIcon2,
+      //  imageSrc: svgIcon2,
       toolTip: "Start Breakout Grouping",
       callback: () => {
+        console.log("Start grouping button clicked");
         WA.state.grouping = 1;
         WA.ui.actionBar.removeButton("startGrouping-btn");
         addStartGroupingButton();
@@ -310,12 +380,15 @@ WA.onInit().then(() => {
   }
 
   WA.event.on("addGroupingButton").subscribe((value) => {
+    console.log("addGroupingButton event received:", value);
     if (
       ["admin", "editor", "moderator", "hackmod"].some((tag) =>
         WA.player.tags.includes(tag),
       )
     ) {
+      console.log("Player has required role");
       if (value.data === "pressed") {
+        console.log("Adding end grouping button");
         WA.ui.actionBar.removeButton("startGrouping-btn");
         addEndGroupingButton();
       }
@@ -323,23 +396,32 @@ WA.onInit().then(() => {
   });
 
   WA.event.on("endGroupingButton").subscribe((value) => {
+    console.log("endGroupingButton event received:", value);
     if (
       ["admin", "editor", "moderator", "hackmod"].some((tag) =>
         WA.player.tags.includes(tag),
       )
     ) {
+      console.log("Player has required role");
       if (value.data === "pressed") {
+        console.log("Adding start grouping button");
         WA.ui.actionBar.removeButton("endGrouping-btn");
         addStartGroupingButton();
       }
     }
   });
   WA.onInit().then(() => {
-    if (WA.player.tags.includes("editor")) {
+    console.log("Checking for admin user and showGroupingButton variable");
+    if (WA.player.tags.includes("admin")) {
+      console.log("Player is admin, setting up showGroupingButton listener");
       WA.state.onVariableChange("showGroupingButton").subscribe({
         next: () => {
+          console.log("showGroupingButton variable changed");
           const showGroupingButton = WA.state.showGroupingButton;
           const groupingState = Number(WA.state.grouping);
+          console.log(
+            `showGroupingButton: ${showGroupingButton}, groupingState: ${groupingState}`,
+          );
           if (showGroupingButton === "show") {
             if (groupingState === 1) {
               addStartGroupingButton();
@@ -347,6 +429,7 @@ WA.onInit().then(() => {
               addEndGroupingButton();
             }
           } else if (showGroupingButton === "hide") {
+            console.log("Hiding grouping buttons");
             WA.ui.actionBar.removeButton("startGrouping-btn");
             WA.ui.actionBar.removeButton("endGrouping-btn");
           }
@@ -354,22 +437,30 @@ WA.onInit().then(() => {
       });
 
       const groupingState = Number(WA.state.grouping);
+      console.log(`Initial groupingState: ${groupingState}`);
       if (groupingState === 1) {
         addStartGroupingButton();
       } else if (groupingState === 0) {
         addEndGroupingButton();
       }
+    } else {
+      console.log("Player is not admin, skipping grouping button setup");
     }
   });
 
   WA.onInit().then(() => {
+    console.log("Setting up lockAll variable listener");
     const handleLockAllChange = () => {
+      console.log("handleLockAllChange called");
       const lockAll = WA.state.lockAll;
+      console.log(`lockAll state: ${lockAll}`);
       if (lockAll === "locked") {
+        console.log("Locking all rooms");
         WA.room.hideLayer("above_opened");
         WA.room.hideLayer("rooms_opened");
         WA.room.showLayer("rooms_closed");
       } else if (lockAll === "open") {
+        console.log("Opening all rooms");
         WA.room.showLayer("above_opened");
         WA.room.showLayer("rooms_opened");
         WA.room.hideLayer("rooms_closed");
@@ -379,13 +470,17 @@ WA.onInit().then(() => {
     handleLockAllChange();
 
     WA.state.onVariableChange("lockAll").subscribe(() => {
+      console.log("lockAll variable changed");
       handleLockAllChange();
     });
   });
 
   WA.onInit().then(() => {
+    console.log("Setting up ping event with outline color logic");
     WA.event.on("ping").subscribe((value) => {
+      console.log("Ping event received:", value);
       if (value.data === "start") {
+        console.log("Ping start - setting up outline");
         const playerId = WA.player.uuid;
         if (playerId) {
           WA.event.broadcast("pong", playerId);
@@ -396,6 +491,7 @@ WA.onInit().then(() => {
           console.error("Player UUID is undefined");
         }
       } else if (value.data === "stop") {
+        console.log("Ping stop - cleaning up");
         WA.player.removeOutlineColor();
         removeGroupButton();
 
@@ -420,6 +516,7 @@ WA.onInit().then(() => {
         const endMessage =
           endTranslations[WA.player.language as keyof typeof endTranslations] ||
           endTranslations["en-US"];
+        console.log(`Sending end message in language: ${WA.player.language}`);
         WA.chat.sendChatMessage(endMessage, "system");
       }
     });
