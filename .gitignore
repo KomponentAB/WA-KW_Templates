@@ -27,3 +27,4 @@ dist-ssr
 .env.secret
 dist.zip
 .gitattributes
+map.json
