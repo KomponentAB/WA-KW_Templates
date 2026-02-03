@@ -50,9 +50,7 @@ async function updateTitle(variableName: string) {
   var text: string = WA.state[variableName] as string;
   console.log(`Text for ${variableName} is configured as ` + text);
   var color = variableName.split("-")[0];
-  var newTitle = `https://iw6tkif7th7yp5ax2ufzkl3kce0bcuys.lambda-url.us-east-1.on.aws/?text=${encodeURIComponent(
-    text,
-  )}&imageType=caption&width=78&height=50&color=${color}`;
+  var newTitle = `https://iw6tkif7th7yp5ax2ufzkl3kce0bcuys.lambda-url.us-east-1.on.aws/?text=${encodeURIComponent(text)}&imageType=caption&width=78&height=50&color=${color}`;
   console.log("New img-url of title is " + newTitle);
   const website = await WA.room.website.get(
     variableName.replace("text", "display"),
