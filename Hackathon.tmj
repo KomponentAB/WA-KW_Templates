@@ -6595,7 +6595,7 @@
                 {
                  "name":"tag",
                  "type":"string",
-                 "value":""
+                 "value":"admin"
                 }],
          "type":"group",
          "visible":true,
