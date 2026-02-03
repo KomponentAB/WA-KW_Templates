@@ -6101,7 +6101,7 @@
                                 {
                                  "name":"default",
                                  "type":"string",
-                                 "value":"Welcome to the CoCreation.World Hackathon"
+                                 "value":"Hackathon"
                                 }, 
                                 {
                                  "name":"description",
@@ -6122,8 +6122,8 @@
                          "type":"variable",
                          "visible":true,
                          "width":0,
-                         "x":1662.85678077082,
-                         "y":2250.0314779679
+                         "x":1624.35912818866,
+                         "y":2210.59485824959
                         }, 
                         {
                          "height":0,
